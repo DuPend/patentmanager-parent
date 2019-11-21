@@ -2,6 +2,7 @@ package com.xinghuo.controller;
 
 import com.xinghuo.pojo.TbUser;
 import com.xinghuo.service.TbUserService;
+import com.xinghuo.target.Action;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,19 +17,26 @@ public class LoginController {
     @Autowired
     private TbUserService tbUserService;
     @RequestMapping("/logincheck")
+    @Action(name = "注解式拦截的add操作")
     @ResponseBody
     public String loginCheckController(TbUser tbUser, HttpServletRequest httpServletRequest) {
-        tbUser.setUserName("admin");
-        tbUser.setPassword("admin");
-        tbUser.setRole(0);
+        tbUser.setUserName("杜鹏");
+        tbUser.setPassword("123456");
+        tbUser.setRole(1);
         TbUser tempUser = tbUserService.showUserByNameService(tbUser.getUserName());
-        if (tbUser != null && tempUser.getUserName().equals(tbUser.getUserName())
-                && tempUser.getPassword().equals(tbUser.getPassword())) {
-            HttpSession session = httpServletRequest.getSession();
-            session.setAttribute("user", tbUser);
-            return "success";
+        System.out.println(tempUser);
+        if (tempUser != null ) {
+            if (tempUser.getUserName().equals(tbUser.getUserName()) && tempUser.getPassword().equals(tbUser.getPassword())
+                    && tempUser.getRole() == tbUser.getRole()) {
+                HttpSession session = httpServletRequest.getSession();
+                session.setAttribute("user", tbUser);
+                return "success";
+            }
+            else {
+                return "false";
+            }
         } else {
-            return "redirect:/login";
+            return "false";
         }
     }
     @RequestMapping("/login")
