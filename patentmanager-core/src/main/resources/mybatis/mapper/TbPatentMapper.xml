@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xinghuo.mapper.PatentMapper" >
+  <resultMap id="BaseResultMap" type="com.xinghuo.pojo.TbPatent">
+    <id column="patent_id" property="patentId" jdbcType="INTEGER"/>
+    <result column="batch" property="batch" jdbcType="VARCHAR"/>
+    <result column="patent_name" property="patentName" jdbcType="VARCHAR"/>
+    <result column="case_number" property="caseNumber" jdbcType="VARCHAR"/>
+    <result column="propose_number" property="proposeNumber" jdbcType="VARCHAR"/>
+    <result column="proposer_name" property="proposerName" jdbcType="VARCHAR"/>
+    <result column="law_status" property="lawStatus" jdbcType="VARCHAR"/>
+    <result column="patent_type" property="patentType" jdbcType="VARCHAR"/>
+    <result column="inventor_name" property="inventorName" jdbcType="VARCHAR"/>
+    <result column="propose_date" property="proposeDate" jdbcType="DATE"/>
+    <result column="technical_contact" property="technicalContact" jdbcType="VARCHAR"/>
+    <result column="creator_id" property="creatorId" jdbcType="INTEGER"/>
+    <result column="creator_name" property="creatorName" jdbcType="VARCHAR"/>
+    <result column="remark" property="remark" jdbcType="VARCHAR"/>
+    <association property="writer" javaType="TbUser">
+      <id column="wuser_id" property="userId" jdbcType="INTEGER"/>
+      <result column="wuser_name" property="userName" jdbcType="VARCHAR"/>
+      <result column="wpassword" property="password" jdbcType="VARCHAR"/>
+      <result column="wrole" property="role" jdbcType="INTEGER"/>
+    </association>
+    <association property="creator" javaType="TbUser">
+      <id column="cuser_id" property="userId" jdbcType="INTEGER"/>
+      <result column="cuser_name" property="userName" jdbcType="VARCHAR"/>
+      <result column="cpassword" property="password" jdbcType="VARCHAR"/>
+      <result column="crole" property="role" jdbcType="INTEGER"/>
+    </association>
+    <association property="tbplan" javaType="TbPlan">
+      <id column="plan_id" property="planId" jdbcType="INTEGER"/>
+      <result column="plan_content" property="planContent" jdbcType="VARCHAR"/>
+    </association>
+    <collection property="tbIndicators" ofType="TbIndicator">
+      <id column="ind_id" property="indId" jdbcType="INTEGER"/>
+      <result column="ind_details" property="indDetails" jdbcType="VARCHAR"/>
+      <result column="tbpatent_id" property="patentId" jdbcType="INTEGER" />
+    </collection>
+  </resultMap>
+<sql id="Base_Column_List" >
+  tb_patent.patent_id,batch,patent_name,case_number,propose_number,proposer_name,law_status,
+    patent_type,inventor_name,propose_date,technical_contact,remark,writer.user_name as wuser_name,writer.role as wrole,creater.user_name as cuser_name,
+    tb_patent.plan_id as plan_id,plan_content,ind_details,ind_id
+</sql>
+  <select id="getPatentByUser" resultMap="BaseResultMap" parameterType="Integer">
+    select
+    <include refid="Base_Column_List"></include>
+    from tb_patent,tb_plan,tb_user as writer ,tb_user as creater ,tb_indicator
+    where tb_patent.writer_id=writer.user_id
+    and  tb_patent.creator_id=creater.user_id
+    and tb_plan.plan_id=tb_patent.plan_id
+    and tb_indicator.patent_id = tb_patent.patent_id
+	and tb_patent.patent_id= tb_indicator.patent_id
+	and tb_patent.writer_id = #{writerId}
+  </select>
+
+  <select id="getPatentById" resultMap="BaseResultMap" parameterType="Integer">
+    select
+    <include refid="Base_Column_List"></include>
+    from tb_patent,tb_plan,tb_user as writer ,tb_user as creater ,tb_indicator
+    where tb_patent.writer_id=writer.user_id
+    and  tb_patent.creator_id=creater.user_id
+    and tb_plan.plan_id=tb_patent.plan_id
+    and tb_indicator.patent_id = tb_patent.patent_id
+    and tb_patent.patent_id= tb_indicator.patent_id
+    and tb_patent.patent_id = #{patentId}
+  </select>
+
+  <!--查看当前用户的所有专利-->
+  <!--<sql id="Base_Column_List" >
+        patent_id,batch,patent_name,case_number,propose_number,proposer_name,law_status,
+        patent_type,inventor_name,propose_date,technical_contact,remark,writer.user_name as wuser_name,creater.user_name as cuser_name,
+        plan_id,plan_content,ind_details
+    </sql>
+  &lt;!&ndash;查看当前用户的所有专利&ndash;&gt;
+  <select id="getPatentByUser" resultMap="BaseResultMap" parameterType="Integer">
+    select
+    <include refid="Base_Column_List"></include>
+    from tb_patent,tb_plan,tb_user as writer ,tb_user as creater ,tb_indicator
+    where tb_patent.writer_id=writer.user_id
+    and  tb_patent.creator_id=creater.user_id
+    and tb_plan.plan_id=tb_patent.patent_id
+    and tb_patent.writer_id = #{writerId}
+    and tb_indicator.patent_id = tb_patent.patent_id
+    /*select tb_patent.patent_id as patent_id,patent_name,ind_details
+    from tb_indicator
+    left join tb_patent on tb_patent.patent_id=tb_indicator.patent_id
+    where tb_patent.writer_id= #{writerid,jdbcType=INTEGER}*/
+  </select>
+-->
+  <!-- <select id="getPatentByUser" resultMap="BaseResultMap" parameterType="Integer" >
+     select
+    patent_id, batch, patent_name, case_number, propose_number, proposer_name, law_status,
+     patent_type, inventor_name, propose_date, technical_contact, writer_id, creator_id,
+     plan_id, remark
+     from tb_patent
+     where writer_id = #{writerId,jdbcType=INTEGER}
+   </select>-->
+
+  <delete id="deleteIndicatorsByPatentId"  parameterType="Integer" >
+    delete from tb_indicator
+    where patent_id = #{patentId,jdbcType=INTEGER}
+  </delete>
+<!--  <insert id="insert" parameterType="com.js.pojo.TbPatent" >-->
+<!--    insert into tb_patent (patent_id, batch, patent_name, -->
+<!--      case_number, propose_number, proposer_name, -->
+<!--      law_status, patent_type, inventor_name, -->
+<!--      propose_date, "technical_ contact", writer_id, -->
+<!--      creator_id, plan_id, remark-->
+<!--      )-->
+<!--    values (#{patentId,jdbcType=INTEGER}, #{batch,jdbcType=VARCHAR}, #{patentName,jdbcType=VARCHAR}, -->
+<!--      #{caseNumber,jdbcType=VARCHAR}, #{proposeNumber,jdbcType=VARCHAR}, #{proposerName,jdbcType=VARCHAR}, -->
+<!--      #{lawStatus,jdbcType=VARCHAR}, #{patentType,jdbcType=VARCHAR}, #{inventorName,jdbcType=VARCHAR}, -->
+<!--      #{proposeDate,jdbcType=DATE}, #{technicalContact,jdbcType=VARCHAR}, #{writerId,jdbcType=INTEGER}, -->
+<!--      #{creatorId,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}-->
+<!--      )-->
+<!--  </insert>-->
+  <insert id="insertIndicatorsByPatentId" parameterType="com.xinghuo.pojo.TbIndicator" >
+    insert into `tb_indicator`
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="indId != null or indId == 0" >
+        `ind_id`,
+      </if>
+      <if test="indDetails != null" >
+        `ind_details`,
+      </if>
+      <if test="patentId != null or patentId == 0" >
+        `patent_id`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="indId != null or indId == 0" >
+        #{indId,jdbcType=INTEGER},
+      </if>
+      <if test="indDetails != null" >
+        #{indDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="patentId != null or patentId == 0" >
+        #{patentId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updatePatentById" parameterType="com.xinghuo.pojo.TbPatent" >
+      update tb_patent
+      <set >
+        <if test="batch != null" >
+          batch = #{batch,jdbcType=VARCHAR},
+        </if>
+        <if test="patentName != null" >
+          patent_name = #{patentName,jdbcType=VARCHAR},
+        </if>
+        <if test="caseNumber != null" >
+          case_number = #{caseNumber,jdbcType=VARCHAR},
+        </if>
+        <if test="proposeNumber != null" >
+          propose_number = #{proposeNumber,jdbcType=VARCHAR},
+        </if>
+        <if test="proposerName != null" >
+          proposer_name = #{proposerName,jdbcType=VARCHAR},
+        </if>
+        <if test="lawStatus != null" >
+          law_status = #{lawStatus,jdbcType=VARCHAR},
+        </if>
+        <if test="patentType != null" >
+          patent_type = #{patentType,jdbcType=VARCHAR},
+        </if>
+        <if test="inventorName != null" >
+          inventor_name = #{inventorName,jdbcType=VARCHAR},
+        </if>
+        <if test="proposeDate != null" >
+          propose_date = #{proposeDate,jdbcType=DATE},
+        </if>
+        <if test="technicalContact != null" >
+          "technical_ contact" = #{technicalContact,jdbcType=VARCHAR},
+        </if>
+
+        <if test="writer != null">
+          <if test="writer.userId != null and writer.userId != ''" >
+            writer_id = #{writer.userId,jdbcType=INTEGER},
+          </if>
+        </if>
+
+        <if test="creator != null">
+          <if test="creator.userId != null and creator.userId !='' " >
+            creator_id = #{creator.userId,jdbcType=INTEGER},
+          </if>
+        </if>
+        <if test="tbplan != null">
+          <if test="tbplan.planId != null and tbplan.planId !=''" >
+            plan_id = #{tbplan.planId,jdbcType=INTEGER},
+          </if>
+        </if>
+        <if test="remark != null" >
+          remark = #{remark,jdbcType=VARCHAR},
+        </if>
+      </set>
+      where patent_id = #{patentId,jdbcType=INTEGER}
+    </update>
+  <!--  <update id="updateByPrimaryKey" parameterType="com.js.pojo.TbPatent" >-->
+  <!--    update tb_patent-->
+  <!--    set batch = #{batch,jdbcType=VARCHAR},-->
+  <!--      patent_name = #{patentName,jdbcType=VARCHAR},-->
+  <!--      case_number = #{caseNumber,jdbcType=VARCHAR},-->
+  <!--      propose_number = #{proposeNumber,jdbcType=VARCHAR},-->
+  <!--      proposer_name = #{proposerName,jdbcType=VARCHAR},-->
+  <!--      law_status = #{lawStatus,jdbcType=VARCHAR},-->
+  <!--      patent_type = #{patentType,jdbcType=VARCHAR},-->
+  <!--      inventor_name = #{inventorName,jdbcType=VARCHAR},-->
+  <!--      propose_date = #{proposeDate,jdbcType=DATE},-->
+  <!--      "technical_ contact" = #{technicalContact,jdbcType=VARCHAR},-->
+  <!--      writer_id = #{writerId,jdbcType=INTEGER},-->
+  <!--      creator_id = #{creatorId,jdbcType=INTEGER},-->
+  <!--      plan_id = #{planId,jdbcType=INTEGER},-->
+  <!--      remark = #{remark,jdbcType=VARCHAR}-->
+  <!--    where patent_id = #{patentId,jdbcType=INTEGER}-->
+  <!--  </update>-->
+ <!-- <update id="updateByPrimaryKeySelective" parameterType="com.js.pojo.TbPatent" >&ndash;&gt;-->
+  <!--    update tb_patent-->
+  <!--    <set >-->
+  <!--      <if test="batch != null" >-->
+  <!--        batch = #{batch,jdbcType=VARCHAR},-->
+  <!--      </if>-->
+  <!--      <if test="patentName != null" >-->
+  <!--        patent_name = #{patentName,jdbcType=VARCHAR},-->
+  <!--      </if>-->
+  <!--      <if test="caseNumber != null" >-->
+  <!--        case_number = #{caseNumber,jdbcType=VARCHAR},-->
+  <!--      </if>-->
+  <!--      <if test="proposeNumber != null" >-->
+  <!--        propose_number = #{proposeNumber,jdbcType=VARCHAR},-->
+  <!--      </if>-->
+  <!--      <if test="proposerName != null" >-->
+  <!--        proposer_name = #{proposerName,jdbcType=VARCHAR},-->
+  <!--      </if>-->
+  <!--      <if test="lawStatus != null" >-->
+  <!--        law_status = #{lawStatus,jdbcType=VARCHAR},-->
+  <!--      </if>-->
+  <!--      <if test="patentType != null" >-->
+  <!--        patent_type = #{patentType,jdbcType=VARCHAR},-->
+  <!--      </if>-->
+  <!--      <if test="inventorName != null" >-->
+  <!--        inventor_name = #{inventorName,jdbcType=VARCHAR},-->
+  <!--      </if>-->
+  <!--      <if test="proposeDate != null" >-->
+  <!--        propose_date = #{proposeDate,jdbcType=DATE},-->
+  <!--      </if>-->
+  <!--      <if test="technicalContact != null" >-->
+  <!--        "technical_ contact" = #{technicalContact,jdbcType=VARCHAR},-->
+  <!--      </if>-->
+  <!--      <if test="writerId != null" >-->
+  <!--        writer_id = #{writerId,jdbcType=INTEGER},-->
+  <!--      </if>-->
+  <!--      <if test="creatorId != null" >-->
+  <!--        creator_id = #{creatorId,jdbcType=INTEGER},-->
+  <!--      </if>-->
+  <!--      <if test="planId != null" >-->
+  <!--        plan_id = #{planId,jdbcType=INTEGER},-->
+  <!--      </if>-->
+  <!--      <if test="remark != null" >-->
+  <!--        remark = #{remark,jdbcType=VARCHAR},-->
+  <!--      </if>-->
+  <!--    </set>-->
+  <!--    where patent_id = #{patentId,jdbcType=INTEGER}-->
+  <!--  </update>-->
+  <!--  <update id="updateByPrimaryKey" parameterType="com.js.pojo.TbPatent" >-->
+  <!--    update tb_patent-->
+  <!--    set batch = #{batch,jdbcType=VARCHAR},-->
+  <!--      patent_name = #{patentName,jdbcType=VARCHAR},-->
+  <!--      case_number = #{caseNumber,jdbcType=VARCHAR},-->
+  <!--      propose_number = #{proposeNumber,jdbcType=VARCHAR},-->
+  <!--      proposer_name = #{proposerName,jdbcType=VARCHAR},-->
+  <!--      law_status = #{lawStatus,jdbcType=VARCHAR},-->
+  <!--      patent_type = #{patentType,jdbcType=VARCHAR},-->
+  <!--      inventor_name = #{inventorName,jdbcType=VARCHAR},-->
+  <!--      propose_date = #{proposeDate,jdbcType=DATE},-->
+  <!--      "technical_ contact" = #{technicalContact,jdbcType=VARCHAR},-->
+  <!--      writer_id = #{writerId,jdbcType=INTEGER},-->
+  <!--      creator_id = #{creatorId,jdbcType=INTEGER},-->
+  <!--      plan_id = #{planId,jdbcType=INTEGER},-->
+  <!--      remark = #{remark,jdbcType=VARCHAR}-->
+  <!--    where patent_id = #{patentId,jdbcType=INTEGER}-->
+  <!--  </update>-->
+<!--  <update id="updateByPrimaryKey" parameterType="com.js.pojo.TbPatent" >-->
+<!--    update tb_patent-->
+<!--    set batch = #{batch,jdbcType=VARCHAR},-->
+<!--      patent_name = #{patentName,jdbcType=VARCHAR},-->
+<!--      case_number = #{caseNumber,jdbcType=VARCHAR},-->
+<!--      propose_number = #{proposeNumber,jdbcType=VARCHAR},-->
+<!--      proposer_name = #{proposerName,jdbcType=VARCHAR},-->
+<!--      law_status = #{lawStatus,jdbcType=VARCHAR},-->
+<!--      patent_type = #{patentType,jdbcType=VARCHAR},-->
+<!--      inventor_name = #{inventorName,jdbcType=VARCHAR},-->
+<!--      propose_date = #{proposeDate,jdbcType=DATE},-->
+<!--      "technical_ contact" = #{technicalContact,jdbcType=VARCHAR},-->
+<!--      writer_id = #{writerId,jdbcType=INTEGER},-->
+<!--      creator_id = #{creatorId,jdbcType=INTEGER},-->
+<!--      plan_id = #{planId,jdbcType=INTEGER},-->
+<!--      remark = #{remark,jdbcType=VARCHAR}-->
+<!--    where patent_id = #{patentId,jdbcType=INTEGER}-->
+<!--  </update>-->
+</mapper>

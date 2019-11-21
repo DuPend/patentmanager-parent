@@ -1,7 +1,5 @@
 package com.xinghuo.pojo;
 
-
-
 public class TbPlan {
     private Integer planId;
 
@@ -20,6 +18,8 @@ public class TbPlan {
     }
 
     public void setPlanContent(String planContent) {
+
         this.planContent = planContent;
     }
 }
+
