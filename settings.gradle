@@ -1,0 +1,8 @@
+rootProject.name = 'patentmanager-parent'
+
+
+include 'patentmanager-core'
+include 'patentmanager-web'
+//include 'patentmanager-common'
+include 'patentmanager-common'
+
