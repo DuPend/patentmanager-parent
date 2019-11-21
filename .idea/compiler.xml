@@ -19,8 +19,6 @@
       <module name="com.xinghuo.patentmanager-service.test" target="1.8" />
       <module name="com.xinghuo.patentmanager-web.main" target="1.8" />
       <module name="com.xinghuo.patentmanager-web.test" target="1.8" />
-      <module name="patentmanager-parent.patentmanager-web.main" target="1.8" />
-      <module name="patentmanager-parent.patentmanager-web.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

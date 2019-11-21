@@ -2,12 +2,14 @@ server:
   port: 8080
 mybatis:
   #mybatis配置文件所在路径
-  config-location: classpath:mybatis/mybatis.cfg.xml
+  #config-location: classpath:mybatis/mybatis.cfg.xml
   #所有Entity别名类所在包
-  type-aliases-package: com.patentmanager.entity
+  type-aliases-package: com.xinghuo.pojo
   # mapper映射文件
   mapper-locations:
     - classpath:mybatis/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
 spring:
   application:
@@ -21,10 +23,10 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 
     #数据库名称
-    url: jdbc:mysql://127.0.0.1:3306/clouddb01?serverTimezone=UTC
-    #url: jdbc:mysql://60.205.230.70:3306/patent_admin?serverTimezone=UTC
-    username: root    #xinghuo1
-    password: 153879  #xinghuo1
+#    url: jdbc:mysql://127.0.0.1:3306/clouddb01?serverTimezone=UTC
+    url: jdbc:mysql://60.205.230.70:3306/patent_admin?serverTimezone=UTC
+    username: xinghuo1
+    password: xinghuo1
     dbcp2:
       #数据库连接池的最小维持连接数
       min-idle: 5

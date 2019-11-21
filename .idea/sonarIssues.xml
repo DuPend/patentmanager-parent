@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="$PROJECT_DIR$/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/entity/Dept.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/mapper/IndicatorMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/mapper/TbLogMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/mapper/TbUserMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/pojo/Dept.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/service/Impl/IndicatorServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/service/Impl/TbLogServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/service/Impl/TbUserServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/service/IndicatorService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/resources/mybatis/mapper/IndicatorMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/resources/mybatis/mapper/TbLogMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/aspect/LogsAspect.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/controller/IndicatorController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/controller/LoginController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/controller/TbLogController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

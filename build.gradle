@@ -45,6 +45,6 @@ subprojects {
         testCompile('org.projectlombok:lombok')
         testCompile "org.springframework.boot:spring-boot-starter-test"
         testCompile "org.springframework.boot:spring-boot-test-autoconfigure"
-
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.2.0.RELEASE'
     }
 }
