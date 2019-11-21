@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/patentmanager-common" />
             <option value="$PROJECT_DIR$/patentmanager-core" />
             <option value="$PROJECT_DIR$/patentmanager-web" />
+            <option value="$PROJECT_DIR$/qw" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />
