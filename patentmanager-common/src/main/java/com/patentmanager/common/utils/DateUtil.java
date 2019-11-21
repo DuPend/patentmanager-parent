@@ -23,7 +23,6 @@ public class DateUtil {
 			SimpleDateFormat utcFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS Z");
 			toDate =  utcFormat.parse(UTCString);
 		}
-
 		else {
 			toDate = format.parse(timeStr);
 		}
