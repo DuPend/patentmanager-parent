@@ -32,7 +32,7 @@
       <id column="plan_id" property="planId" jdbcType="INTEGER"/>
       <result column="plan_content" property="planContent" jdbcType="VARCHAR"/>
     </association>
-    <collection property="tbIndicators" javaType="java.util.ArrayList" ofType="TbIndicator">
+    <collection property="tbIndicators" javaType="java.util.ArrayList" ofType="com.xinghuo.pojo.TbIndicator">
       <id column="ind_id" property="indId" jdbcType="INTEGER"/>
       <result column="ind_details" property="indDetails" jdbcType="VARCHAR"/>
       <result column="tbpatent_id" property="patentId" jdbcType="INTEGER" />
@@ -134,11 +134,10 @@
     <association property="tbplan" javaType="com.xinghuo.pojo.TbPlan">
       <result column="plan_content" property="planContent" jdbcType="VARCHAR"/>
     </association>
-
-
   </resultMap>
+
   <!--zhou_gc  根据多条件查询相关专利，未被认领的专利在上方显示-->
-  <select id="selectByPatentInfo" parameterType="com.xinghuo.pojo.TbPatent" resultMap="PatentsResultMap">
+  <select id="getPatentList" parameterType="com.xinghuo.pojo.TbPatent" resultMap="PatentsResultMap">
 
     SELECT
     patent_id,
@@ -177,7 +176,7 @@
   </select>
 
   <!--zhou_gc  根据专利id查询指定专利信息-->
-  <select id="selectByPatentId" parameterType="INTEGER" resultMap="BaseResultMap">
+  <select id="getPatentByPatentId" parameterType="INTEGER" resultMap="BaseResultMap">
         SELECT  tb_patent.patent_id,tb_patent.batch,tb_patent.patent_name,tb_patent.case_number,tb_patent.propose_number,tb_patent.proposer_name,tb_patent.law_status,tb_patent.patent_type,tb_patent.inventor_name,
         tb_patent.propose_date,tb_patent.technical_contact,tb_patent.remark,tb_user.user_name AS cuser_name,tb_user1.user_name AS wuser_name ,tb_plan.plan_content,tb_indicator.ind_details
         FROM
@@ -187,10 +186,10 @@
          LEFT JOIN tb_user AS tb_user1 ON tb_patent.writer_id=tb_user1.user_id
          LEFT JOIN  tb_indicator ON tb_patent.patent_id=tb_indicator.patent_id
      <where>
-       tb_patent.patent_id = #{value}
+        AND tb_patent.patent_id = #{value}
      </where>
-
   </select>
+
 
 
 

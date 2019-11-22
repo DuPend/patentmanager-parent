@@ -3,10 +3,14 @@ package com.xinghuo.mapper;
 import com.xinghuo.pojo.TbIndicator;
 import com.xinghuo.pojo.TbPatent;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Mapper
+@Repository
+
 public interface TbPatentMapper {
 
     List<TbPatent> getPatentByUser(Integer userId);

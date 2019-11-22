@@ -5,6 +5,8 @@ import com.xinghuo.service.AdminPatentListService;
 import com.xinghuo.service.Impl.AdminPatentListServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -64,7 +66,7 @@ public class AdminPatentListController {
         @RequestMapping("/selectByPatentId")
         @ResponseBody
     public TbPatent  selectByPatentId(Integer  patent_id){
-
+            System.out.println(patent_id);
         return adminPatentListService.selectByPatentId(patent_id);
     }
 

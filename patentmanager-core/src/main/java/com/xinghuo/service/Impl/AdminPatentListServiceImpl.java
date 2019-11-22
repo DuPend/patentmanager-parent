@@ -6,6 +6,7 @@ import com.xinghuo.service.AdminPatentListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -26,6 +27,6 @@ public class AdminPatentListServiceImpl implements AdminPatentListService {
     }
 
     @Override public TbPatent selectByPatentId(Integer patent_id) {
-        return tbPatentMapper.getPatentById(patent_id);
+        return tbPatentMapper.getPatentByPatentId(patent_id);
     }
 }

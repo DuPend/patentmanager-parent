@@ -3,6 +3,7 @@ package com.xinghuo.service.Impl;
 import com.xinghuo.mapper.TbPatentMapper;
 import com.xinghuo.pojo.TbPatent;
 import com.xinghuo.service.UserPatentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,7 +17,7 @@ import java.util.List;
  **/
 @Service
 public class UserPatentServiceImpl implements UserPatentService {
-   @Resource TbPatentMapper patentMapper;
+   @Autowired TbPatentMapper patentMapper;
 
     @Override
     public List<TbPatent> getPatentByUser(Integer userId) {
