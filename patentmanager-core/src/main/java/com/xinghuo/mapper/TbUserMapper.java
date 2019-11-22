@@ -2,10 +2,13 @@ package com.xinghuo.mapper;
 
 import com.xinghuo.pojo.TbUser;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
+@Repository
+
 public interface TbUserMapper {
     //增加用户
     int addUser(TbUser tbUser);

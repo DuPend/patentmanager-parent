@@ -1,12 +1,21 @@
 package com.xinghuo.pojo;
 
+/**
+ * @program: mypatent
+ * @description: 专利实体类
+ * @author: Yuyue
+ * @create: 2019-11-20 19:36
+ **/
 
 import java.util.Date;
+import java.util.List;
 
 public class TbPatent {
     private Integer patentId;
 
     private String batch;
+
+
 
     private String patentName;
 
@@ -26,14 +35,43 @@ public class TbPatent {
 
     private String technicalContact;
 
+    private TbPlan tbplan;
+
     private String remark;
+
+    private List<TbIndicator> tbIndicators;
+
+    private  Integer planId;
+
+    private String[] indDetails;
+
+
 
     private TbUser creator;
 
     private TbPlan tbPlan;
-    //
-    private Integer planId;
-    //
+
+
+    public String[] getIndDetails() {
+        return indDetails;
+    }
+
+    public void setIndDetails(String[] indDetails) {
+        this.indDetails = indDetails;
+    }
+
+
+
+    public TbPlan getTbplan() {
+        return tbplan;
+    }
+
+    public void setTbplan(TbPlan tbplan) {
+        this.tbplan = tbplan;
+    }
+
+
+
 
     public Integer getPlanId() {
         return planId;

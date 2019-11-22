@@ -9,15 +9,8 @@ public class TbIndicator {
 
     private Integer patentId;
 
-    private List<TbIndicator> tbIndicators;
 
-    public List<TbIndicator> getTbIndicators() {
-        return tbIndicators;
-    }
 
-    public void setTbIndicators(List<TbIndicator> tbIndicators) {
-        this.tbIndicators = tbIndicators;
-    }
 
     public Integer getIndId() {
         return indId;

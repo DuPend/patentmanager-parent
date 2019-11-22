@@ -5,4 +5,5 @@ include 'patentmanager-core'
 include 'patentmanager-web'
 //include 'patentmanager-common'
 include 'patentmanager-common'
+include 'qw'
 

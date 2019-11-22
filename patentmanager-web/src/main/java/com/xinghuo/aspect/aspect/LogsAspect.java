@@ -1,4 +1,4 @@
-package com.xinghuo.aspect;
+package com.xinghuo.aspect.aspect;
 
 import com.xinghuo.common.utils.FileUtil;
 import com.xinghuo.pojo.TbLog;
@@ -18,7 +18,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Date;
 
-@Aspect
+//@Aspect
 @Component
 public class LogsAspect {
 
@@ -44,7 +44,6 @@ public class LogsAspect {
         //获取当前登陆的用户名和时间
         HttpSession session = request.getSession();
         String userName = (String) session.getAttribute("username");
-
         // 记录下请求内容,首先获取当前日期的log日志文件名称并查询数据库是否存在文件
 //        userName != null
         if (true) { //用户登陆成功，执行日志记录

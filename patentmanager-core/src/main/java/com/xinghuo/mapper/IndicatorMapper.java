@@ -2,6 +2,7 @@ package com.xinghuo.mapper;
 
 import com.xinghuo.pojo.Dept;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 /**
@@ -12,6 +13,8 @@ import java.util.List;
  */
 
 @Mapper
+@Repository
+
 public interface IndicatorMapper {
     /**
      * 查询所有部门

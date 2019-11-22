@@ -40,14 +40,4 @@ public class TbUser {
     public void setRole(Integer role) {
         this.role = role;
     }
-
-    @Override
-    public String toString() {
-        return "TbUser{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", role=" + role +
-                '}';
-    }
 }
