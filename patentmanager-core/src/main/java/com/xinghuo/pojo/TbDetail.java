@@ -1,9 +1,11 @@
 package com.xinghuo.pojo;
 
-
 import java.util.Date;
 
-public class TbPatent {
+/**
+ * create by   段炼 on 2019/11/22
+ **/
+public class TbDetail {
     private Integer patentId;
 
     private String batch;
@@ -31,25 +33,9 @@ public class TbPatent {
     private TbUser creator;
 
     private TbPlan tbPlan;
-    //
-    private Integer planId;
-    //
 
-    public Integer getPlanId() {
-        return planId;
-    }
+    private TbFlow tbFlow;
 
-    public void setPlanId(Integer planId) {
-        this.planId = planId;
-    }
-
-    public TbUser getCreator() {
-        return creator;
-    }
-
-    public void setCreator(TbUser creator) {
-        this.creator = creator;
-    }
 
     public Integer getPatentId() {
         return patentId;
@@ -139,7 +125,21 @@ public class TbPatent {
         this.technicalContact = technicalContact;
     }
 
+    public String getRemark() {
+        return remark;
+    }
 
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public TbUser getCreator() {
+        return creator;
+    }
+
+    public void setCreator(TbUser creator) {
+        this.creator = creator;
+    }
 
     public TbPlan getTbPlan() {
         return tbPlan;
@@ -149,11 +149,14 @@ public class TbPatent {
         this.tbPlan = tbPlan;
     }
 
-    public String getRemark() {
-        return remark;
+    public TbFlow getTbFlow() {
+        return tbFlow;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setTbFlow(TbFlow tbFlow) {
+        this.tbFlow = tbFlow;
     }
+
+
+
 }
