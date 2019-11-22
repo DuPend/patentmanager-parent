@@ -37,6 +37,22 @@ public class TbPatent {
 
     private String technicalContact;
 
+    private TbPlan tbplan;
+
+    private String remark;
+
+    private List<TbIndicator> tbIndicators;
+
+    private  Integer planId;
+
+
+    public Integer getPlanId() {
+        return planId;
+    }
+    public void setPlanId(Integer planId) {
+        this.planId = planId;
+    }
+
     public TbPlan getTbplan() {
         return tbplan;
     }
@@ -45,11 +61,7 @@ public class TbPatent {
         this.tbplan = tbplan;
     }
 
-    private TbPlan tbplan;
 
-    private String remark;
-
-    private List<TbIndicator> tbIndicators;
 
     public TbUser getWriter() {
         return writer;
