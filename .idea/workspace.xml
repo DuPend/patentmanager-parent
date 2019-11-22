@@ -1,46 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86b4a88e-c04d-4aa8-b4cc-09aea8e9d0c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileContent/annotation-processors.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.3.1/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.3.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-common/build/libs/patentmanager-common-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-common/build/libs/patentmanager-common-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-common/build/resources/main/git.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-common/build/resources/main/git.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/mapper/IndicatorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/mapper/IndicatorMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/mapper/TbLogMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/mapper/TbLogMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/mapper/TbUserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/mapper/TbUserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/mapper/UserPatentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/mapper/UserPatentMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/pojo/TbIndicator.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/pojo/TbIndicator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/pojo/TbPatent.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/pojo/TbPatent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/pojo/TbPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/pojo/TbPlan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/pojo/TbUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/pojo/TbUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/service/Impl/userPatentImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/service/UserPatentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/classes/java/main/com/xinghuo/service/UserPatentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/libs/patentmanager-core-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/libs/patentmanager-core-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/resources/main/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/build/resources/main/git.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/build/resources/main/git.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/mapper/SearchMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/mapper/SearchMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/mapper/UserPatentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/mapper/UserPatentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/pojo/TbPatent.java" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/pojo/TbPatent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/service/Impl/UserPatentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/service/Impl/UserPatentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/service/Impl/userPatentImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/service/UserPatentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/service/UserPatentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-web/build/classes/java/main/com/xinghuo/PatentmanagerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-web/build/classes/java/main/com/xinghuo/PatentmanagerApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-web/build/classes/java/main/com/xinghuo/aspect/LogsAspect.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-web/build/classes/java/main/com/xinghuo/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-web/build/classes/java/main/com/xinghuo/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-web/build/classes/java/main/com/xinghuo/controller/UserPatentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-web/build/classes/java/main/com/xinghuo/controller/UserPatentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-web/build/resources/main/git.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-web/build/resources/main/git.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/controller/UserPatentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/controller/UserPatentController.java" afterDir="false" />
-    </list>
+    <list default="true" id="86b4a88e-c04d-4aa8-b4cc-09aea8e9d0c5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +126,7 @@
       <workItem from="1574401729452" duration="1575000" />
       <workItem from="1574410593047" duration="4314000" />
       <workItem from="1574414956111" duration="634000" />
-      <workItem from="1574417041152" duration="1488000" />
+      <workItem from="1574417041152" duration="1757000" />
     </task>
     <task id="LOCAL-00001" summary="与">
       <created>1574401899303</created>
