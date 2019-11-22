@@ -5,6 +5,7 @@ import com.xinghuo.pojo.TbPatent;
 import com.xinghuo.service.SearchService;
 import com.xinghuo.service.UserPatentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,8 @@ import java.util.List;
  */
 @RestController
 public class UserPatentController {
+
+
     @Autowired
     private UserPatentService userPatentService;
 

@@ -24,7 +24,7 @@ spring:
 
     #数据库名称
 #    url: jdbc:mysql://127.0.0.1:3306/clouddb01?serverTimezone=UTC
-    url: jdbc:mysql://60.205.230.70:3306/patent_admin?serverTimezone=UTC
+    url: jdbc:mysql://60.205.230.70:3306/patent_admin??useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
     username: xinghuo1
     password: xinghuo1
     dbcp2:

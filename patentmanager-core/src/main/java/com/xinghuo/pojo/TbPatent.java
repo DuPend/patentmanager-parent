@@ -39,6 +39,14 @@ public class TbPatent {
 
     private String remark;
 
+    public List<TbIndicator> getTbIndicators() {
+        return tbIndicators;
+    }
+
+    public void setTbIndicators(List<TbIndicator> tbIndicators) {
+        this.tbIndicators = tbIndicators;
+    }
+
     private List<TbIndicator> tbIndicators;
 
     private  Integer planId;
