@@ -45,6 +45,17 @@ public class TbPatent {
 
     private  Integer planId;
 
+    private String[] indDetails;
+
+
+    public String[] getIndDetails() {
+        return indDetails;
+    }
+
+    public void setIndDetails(String[] indDetails) {
+        this.indDetails = indDetails;
+    }
+
 
     public Integer getPlanId() {
         return planId;
@@ -62,6 +73,9 @@ public class TbPatent {
     }
 
 
+
+    //专利的指标详情
+    private String[] indDetails;
 
     public TbUser getWriter() {
         return writer;
