@@ -1,6 +1,8 @@
 package com.xinghuo.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class TbFlow {
@@ -9,10 +11,10 @@ public class TbFlow {
     private String editSelectioin;
 
     private String editUser;
-
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date flowDate;
 
-    private Integer patent_id;
+    private Integer patentId;
 
     private TbPatent tbPatent;
 
@@ -56,11 +58,11 @@ public class TbFlow {
         this.flowDate = flowDate;
     }
 
-    public Integer getPatent_id() {
-        return patent_id;
+    public Integer getPatentId() {
+        return patentId;
     }
 
-    public void setPatent_id(Integer patent_id) {
-        this.patent_id = patent_id;
+    public void setPatentId(Integer patentId) {
+        this.patentId = patentId;
     }
 }

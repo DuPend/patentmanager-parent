@@ -3,6 +3,16 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$USER_HOME$/AppData/Local/Temp/tmp__LogsAspect.class">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/JavaWeb/patentmanager-parent/patentmanager-core/src/main/java/com/xinghuo/service/Impl/TbFlowServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/build.gradle">
           <value>
             <set />
@@ -29,6 +39,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/pojo/Dept.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/pojo/TbDetail.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/pojo/TbDocument.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/pojo/TbFlow.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/java/com/xinghuo/pojo/TbPatent.java">
           <value>
             <set />
           </value>
@@ -63,12 +93,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/resources/mybatis/mapper/TbFlowMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/patentmanager-core/src/main/resources/mybatis/mapper/TbLogMapper.xml">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-core/src/main/resources/mybatis/mapper/TbUserMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/aspect/LogsAspect.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/aspect/ManipulerAspect.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/controller/AddPatentController.java">
           <value>
             <set />
           </value>
@@ -79,6 +129,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/controller/LoginController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/patentmanager-web/src/main/java/com/xinghuo/controller/TbFlowController.java">
           <value>
             <set />
           </value>

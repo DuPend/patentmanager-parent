@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xinghuo.mapper.UserPatentMapper">
 
-   <resultMap id="BaseResultMap" type="com.xinghuo.pojo.TbPatent">
+   <resultMap id="BaseResultMap2" type="com.xinghuo.pojo.TbPatent">
        <id column="patent_id" property="patentId" jdbcType="INTEGER"/>
        <result column="batch" property="batch" jdbcType="VARCHAR"/>
        <result column="patent_name" property="patentName" jdbcType="VARCHAR"/>
@@ -67,7 +67,7 @@
             <result column="edit_selectioin" property="editSelectioin" jdbcType="VARCHAR"/>
             <result column="edit_user" property="editUser" jdbcType="VARCHAR"/>
             <result column="flow_date" property="flowDate" jdbcType="DATE"/>
-            <result column="patent_id" property="patent_id" jdbcType="INTEGER"/>
+            <result column="patent_id" property="patentId" jdbcType="INTEGER"/>
         </association>
 
     </resultMap>
@@ -106,7 +106,7 @@
     </sql>
 
     <!-- 查询所有数据  进度、编撰人 tb_plan  tb_patent  tb_user-->
-    <select id="findAll" resultMap="BaseResultMap">
+    <select id="findAll" resultMap="BaseResultMap2">
         SELECT  <include refid="Column_List" /> FROM  tb_patent as p,tb_plan as plan,tb_user as u
         where p.plan_id = plan.plan_id and p.creator_id = u.user_id
 

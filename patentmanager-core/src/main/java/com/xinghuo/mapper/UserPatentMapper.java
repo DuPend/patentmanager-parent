@@ -6,7 +6,12 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+/**
+ *@Author:段炼 on 2019/11/23 11:45
+ *@param:
+ *@return:
+ *@description:
+ */
 @Mapper
 @Repository
 public interface UserPatentMapper {

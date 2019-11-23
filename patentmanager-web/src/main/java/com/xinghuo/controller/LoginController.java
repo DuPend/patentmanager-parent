@@ -2,14 +2,13 @@ package com.xinghuo.controller;
 
 import com.xinghuo.pojo.TbUser;
 import com.xinghuo.service.TbUserService;
-import com.xinghuo.target.Action;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
@@ -17,34 +16,29 @@ public class LoginController {
     @Autowired
     private TbUserService tbUserService;
     @RequestMapping("/logincheck")
-    @Action(name = "注解式拦截的add操作")
     @ResponseBody
-    public String loginCheckController(TbUser tbUser, HttpServletRequest httpServletRequest) {
-        tbUser.setUserName("杜鹏");
-        tbUser.setPassword("123456");
-        tbUser.setRole(1);
+    public TbUser loginCheckController(@RequestBody TbUser tbUser) {
         TbUser tempUser = tbUserService.showUserByNameService(tbUser.getUserName());
         System.out.println(tempUser);
         if (tempUser != null ) {
             if (tempUser.getUserName().equals(tbUser.getUserName()) && tempUser.getPassword().equals(tbUser.getPassword())
                     && tempUser.getRole() == tbUser.getRole()) {
-                HttpSession session = httpServletRequest.getSession();
-                session.setAttribute("user", tbUser);
-                return "success";
+                return tbUser;
             }
             else {
-                return "false";
+                return null;
             }
         } else {
-            return "false";
+            return null;
         }
     }
     @RequestMapping("/login")
-    public String loginController(TbUser tbUser, HttpServletRequest httpServletRequest) {
+    public String loginController(@RequestBody TbUser tbUser) {
         return "index.html";
     }
     @RequestMapping("/changePass")
-    public String changePassword(TbUser tbUser, HttpServletRequest httpServletRequest) {
+    @ResponseBody
+    public String changePassword(@RequestBody TbUser tbUser) {
         int result = tbUserService.updateUserService(tbUser);
         if (result > 0) {
             return "success";

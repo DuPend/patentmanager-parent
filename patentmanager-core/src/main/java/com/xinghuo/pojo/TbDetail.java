@@ -1,5 +1,7 @@
 package com.xinghuo.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -23,7 +25,7 @@ public class TbDetail {
     private String patentType;
 
     private String inventorName;
-
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date proposeDate;
 
     private String technicalContact;

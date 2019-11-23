@@ -1,5 +1,6 @@
 package com.xinghuo.service;
 
+import com.xinghuo.pojo.TbDocument;
 import com.xinghuo.pojo.TbPatent;
 import com.xinghuo.pojo.TbPlan;
 import org.springframework.stereotype.Service;
@@ -16,14 +17,37 @@ import java.util.List;
 
 @Service
 public interface UserPatentService {
+    /*段炼*/
     List<TbPatent> findAll();
+    /*段炼*/
     List<TbPatent> findDetail(Integer id);
+    /*段炼*/
     int update(Integer id);
+
+    //于悦
     List<TbPatent> getPatentByUser(Integer userId);
-
+    //于悦
     TbPatent getPatentById(Integer patentId);
-
+    //于悦
     void  updatePatentById(TbPatent tbPatent);
+    //于悦
+    void addFile(TbDocument tbDocument);
+    //于悦
+    List<TbDocument> selectLatestDocumentById(Integer patentId);
+    //于悦
+    List<TbDocument> selectAllDocumentById(Integer patentId);
+
+    //添加专利   liujian
+    void addPatent(TbPatent tbPatent);
+
+    //根据专利名称查询专利信息  liujian
+    TbPatent findPatentByName(String patentName);
+
+    //根据专利id查询专利信息   liujian
+    TbPatent findPatentById(Integer patentId);
+
+    //通过专利id修改专利进度   liujian
+    void updPlan(TbPatent tbPatent);
 }
 
 

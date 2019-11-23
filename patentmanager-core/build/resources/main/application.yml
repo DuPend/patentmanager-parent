@@ -10,7 +10,8 @@ mybatis:
     - classpath:mybatis/mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
-
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: false
 spring:
   application:
     name: microservicec loud-dept
@@ -23,8 +24,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 
     #数据库名称
-#    url: jdbc:mysql://127.0.0.1:3306/clouddb01?serverTimezone=UTC
-    url: jdbc:mysql://60.205.230.70:3306/patent_admin??useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    #    url: jdbc:mysql://127.0.0.1:3306/clouddb01?serverTimezone=UTC
+    url: jdbc:mysql://60.205.230.70:3306/patent_admin?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
     username: xinghuo1
     password: xinghuo1
     dbcp2:
@@ -50,4 +51,12 @@ spring:
       max-idle: 8
       max-wait: -1
       min-idle: 2
+logging:
+  level: debug
 
+#pagehelper分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

@@ -2,6 +2,7 @@ package com.xinghuo.service.Impl;
 
 import com.xinghuo.mapper.TbPatentMapper;
 import com.xinghuo.mapper.UserPatentMapper;
+import com.xinghuo.pojo.TbDocument;
 import com.xinghuo.pojo.TbPatent;
 import com.xinghuo.service.UserPatentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class UserPatentServiceImpl implements UserPatentService {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
+    //段炼
     @Override
     public List<TbPatent> findAll() {
         /*if((redisTemplate.boundSetOps("findAll").members()) != null) {
@@ -43,30 +45,51 @@ public class UserPatentServiceImpl implements UserPatentService {
 
 
     }
-
+    //段炼
     @Override
     public List<TbPatent> findDetail(Integer id) {
         List<TbPatent> list =userPatentMapper.findDetail(id);
         return list;
     }
-
-    @Override public int update(Integer id) {
+    //段炼
+    @Override
+    public int update(Integer id) {
         return userPatentMapper.update(id);
     }
 
 
-
+    /**
+     *@Author:Yuyue
+     *@Description:获取用户专利列表
+     *@Date:18:04  2019/11/22
+     *@Param:
+     *@Return:
+     */
     @Override
     public List<TbPatent> getPatentByUser(Integer userId) {
-        System.out.println(userId+"cdcdcd");
+
         return patentMapper.getPatentByUser(userId);
     }
 
+    /**
+     *@Author:Yuyue
+     *@Description:获取专利详情，通过专利id
+     *@Date:18:05  2019/11/22
+     *@Param:
+     *@Return:
+     */
     @Override
     public TbPatent getPatentById(Integer patentId) {
         return patentMapper.getPatentById(patentId);
     }
 
+    /**
+     *@Author:Yuyue
+     *@Description:更新专利信息
+     *@Date:18:05  2019/11/22
+     *@Param:
+     *@Return:
+     */
     @Override
     public void updatePatentById(TbPatent tbPatent) {
         //修改专利的基本信息
@@ -83,4 +106,66 @@ public class UserPatentServiceImpl implements UserPatentService {
         }
 
     }
+
+    /**
+     *@Author:Yuyue
+     *@Description:上传文件到数据库
+     *@Date:18:06  2019/11/22
+     *@Param:
+     *@Return:
+     */
+    @Override
+    public void addFile(TbDocument tbDocument) {
+        patentMapper.addFile(tbDocument);
+    }
+
+    /**
+     *@Author:Yuyue
+     *@Description:查询每一类别最新的文件
+     *@Date:18:06  2019/11/22
+     *@Param:
+     *@Return:
+     */
+    @Override
+    public List<TbDocument> selectLatestDocumentById(Integer patentId) {
+        return patentMapper.selectLatestDocumentById(patentId);
+    }
+
+    /**
+     *@Author:Yuyue
+     *@Description:查询专利每一次上传的文件
+     *@Date:18:07  2019/11/22
+     *@Param:
+     *@Return:
+     */
+    @Override
+    public List<TbDocument> selectAllDocumentById(Integer patentId) {
+        return patentMapper.selectAllDocumentById(patentId);
+    }
+
+    //添加专利
+    @Override
+    public void addPatent(TbPatent tbPatent){
+        patentMapper.addPatent(tbPatent);
+    }
+
+    //根据专利名称查询专利信息
+    @Override
+    public TbPatent findPatentByName(String patentName) {
+        return patentMapper.findPatentByName(patentName);
+    }
+
+    //根据专利id查询专利信息
+    @Override
+    public TbPatent findPatentById(Integer patentId) {
+        return patentMapper.findPatentById(patentId);
+    }
+
+    //通过专利id修改专利进度
+    @Override
+    public void updPlan(TbPatent tbPatent) {
+        patentMapper.updPlan(tbPatent);
+    }
+
+
 }

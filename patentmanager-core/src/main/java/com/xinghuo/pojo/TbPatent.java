@@ -3,19 +3,20 @@ package com.xinghuo.pojo;
 /**
  * @program: mypatent
  * @description: 专利实体类
- * @author: Yuyue
+ * @author: Yuyue and duanlian
  * @create: 2019-11-20 19:36
  **/
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
 import java.util.Date;
 import java.util.List;
-
+@Data
 public class TbPatent {
     private Integer patentId;
 
     private String batch;
-
-
 
     private String patentName;
 
@@ -30,7 +31,7 @@ public class TbPatent {
     private String patentType;
 
     private String inventorName;
-
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date proposeDate;
 
     private String technicalContact;
@@ -39,6 +40,47 @@ public class TbPatent {
 
     private String remark;
 
+    private List<TbIndicator> tbIndicators;
+
+    private  Integer planId;
+
+    private String[] indDetails;
+
+    private TbUser creator;
+
+    private TbUser writer;
+
+    private TbPlan tbPlan;
+
+    /** 撰写人id **/
+    private Integer writerId;
+    /** 创建人id **/
+    private Integer creatorId;
+
+    public Integer getWriterId() {
+        return writerId;
+    }
+
+    public void setWriterId(Integer writerId) {
+        this.writerId = writerId;
+    }
+
+    public Integer getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(Integer creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public TbUser getWriter() {
+        return writer;
+    }
+
+    public void setWriter(TbUser writer) {
+        this.writer = writer;
+    }
+
     public List<TbIndicator> getTbIndicators() {
         return tbIndicators;
     }
@@ -46,18 +88,6 @@ public class TbPatent {
     public void setTbIndicators(List<TbIndicator> tbIndicators) {
         this.tbIndicators = tbIndicators;
     }
-
-    private List<TbIndicator> tbIndicators;
-
-    private  Integer planId;
-
-    private String[] indDetails;
-
-
-
-    private TbUser creator;
-
-    private TbPlan tbPlan;
 
 
     public String[] getIndDetails() {
@@ -68,8 +98,6 @@ public class TbPatent {
         this.indDetails = indDetails;
     }
 
-
-
     public TbPlan getTbplan() {
         return tbplan;
     }
@@ -77,9 +105,6 @@ public class TbPatent {
     public void setTbplan(TbPlan tbplan) {
         this.tbplan = tbplan;
     }
-
-
-
 
     public Integer getPlanId() {
         return planId;
@@ -185,8 +210,6 @@ public class TbPatent {
         this.technicalContact = technicalContact;
     }
 
-
-
     public TbPlan getTbPlan() {
         return tbPlan;
     }
@@ -202,4 +225,5 @@ public class TbPatent {
     public void setRemark(String remark) {
         this.remark = remark;
     }
+
 }

@@ -1,7 +1,10 @@
 package com.xinghuo.pojo;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class TbIndicator {
     private Integer indId;
 
@@ -9,7 +12,7 @@ public class TbIndicator {
 
     private Integer patentId;
 
-
+    private TbPatent tbPatent;
 
 
     public Integer getIndId() {
