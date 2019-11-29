@@ -1,222 +1,266 @@
 package com.xinghuo.controller;
-//import com.xinghuo.common.utils.SpringContextUtils;
-import com.xinghuo.pojo.TbDocument;
-import com.xinghuo.pojo.TbDocumentType;
-import com.xinghuo.pojo.TbIndicator;
-import com.xinghuo.pojo.TbPatent;
 
+import com.github.pagehelper.Page;
+import com.xinghuo.pojo.*;
+import com.xinghuo.service.TbPlanService;
+import com.xinghuo.service.UploadFileService;
 import com.xinghuo.service.SearchService;
 import com.xinghuo.service.UserPatentService;
+import com.xinghuo.target.Action;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import sun.java2d.pipe.AAShapePipe;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
- *@Author:段炼 on 2019/11/22 17:36
- *@param:
- *@return:
- *@description:专利的各种查询
+ * @Author:段炼 和于悦 on 2019/11/22 17:36
+ * @param:
+ * @return:
+ * @description:专利的各种查询
  */
 @RestController
-//@RequestMapping("patent")
 public class UserPatentController {
-    @Autowired UserPatentService userPatentService;
+    @Autowired
+    private UserPatentService userPatentService;
+    @Autowired
+    private UploadFileService uploadFileService;
+    @Autowired
+    private TbPlanService tbPlanService;
+    @Autowired
+    private HttpServletRequest httpServletRequest;
 
     /**
-     *@Author:Yuyue
-     *@Description:查询当前用户的专利基本信息
-     *@Date:21:06  2019/11/21
-     *@Param:  * @param Integer userId
-     *@Return: 用户所有被认领的专利
+     * @Author:Yuyue
+     * @Description:查询当前用户认领的专利列表
+     * @Date:21:06 2019/11/21
+     * @Param: * @param Integer userId
+     * @Return: 用户所有被认领的专利
      */
-    @RequestMapping("/UserPatent")
-    public List<TbPatent> getPatentByUser(Integer userId){
-        System.out.println(userPatentService.getPatentByUser(userId).toString()+"oooocsvcvdsfcasvsz");
-        return userPatentService.getPatentByUser(userId);
+    @RequestMapping("UserPatent")
+    public PageInfo<TbPatent> getPatentByUser(Integer userId,
+                @RequestParam(defaultValue = "1", value = "currentPage")int page,
+                @RequestParam(defaultValue = "10", value = "pageSize")int rows) {
+        Page<TbPatent> indicatorList = userPatentService.getPatentByUser(userId, page, rows);
+        PageInfo<TbPatent> pageInfo = new PageInfo<>(indicatorList);
+        return  pageInfo;
+
     }
 
     /**
-     *@Author:Yuyue
-     *@Description:查询专利详情
-     *@Date:21:07  2019/11/21
-     *@Param:  * @param 专利id
-     *@Return:
+     * @Author:Yuyue
+     * @Description:查询用户撰写后，未通过的专利
+     * @Date:15:19 2019/11/24
+     * @Param:
+     * @Return:
      */
-    @RequestMapping("/PatentDetail")
-    public TbPatent getPatentById(Integer patentId){
-        System.out.println("dasdasadad"+userPatentService.getPatentById(patentId).toString());
+    @GetMapping("FailPatent")
+    public PageInfo<TbPatent> getFailPatentByUser(Integer userId,
+                                              @RequestParam(defaultValue = "1", value = "currentPage")int page,
+                                              @RequestParam(defaultValue = "10", value = "pageSize")int rows) {
+        /* int userId = Integer.valueOf((String)httpServletRequest.getParameter("userId"));*/
+        Page<TbPatent> indicatorList = userPatentService.getFailPatentByUser(userId, page, rows);
+        PageInfo<TbPatent> pageInfo = new PageInfo<>(indicatorList);
+        return  pageInfo;
+    }
+
+    /**
+     * @Author:Yuyue
+     * @Description:查询专利详情
+     * @Date:21:07 2019/11/21
+     * @Param: * @param 专利id
+     * @Return:
+     */
+    @RequestMapping("PatentDetail")
+    public TbPatent getPatentById(Integer patentId) {
+        /*System.out.println("dasdasadad"+userPatentService.getPatentById(patentId).toString());*/
+        System.out.println(patentId);
         return userPatentService.getPatentById(patentId);
     }
 
     /**
-     *@Author:Yuyue
-     *@Description:接口解析没有完成，返回值没有完成
-     *@Date:21:12  2019/11/21
-     *@Param:
-     *@Return:
+     * @Author:Yuyue
+     * @Description:修改专利内容
+     * @Date:21:12 2019/11/21
+     * @Param:
+     * @Return:
      */
-    @RequestMapping("/updatePatent")
-    public boolean updatePatentById(){
-        TbPatent tb=new TbPatent();
-        tb.setPatentId(1);
-        tb.setBatch("第3批");
-        tb.setRemark("啦啦啦啦啦");
-        TbIndicator ind=new TbIndicator();
-        ind.setIndDetails("体重指标不超过180");
-        ind.setPatentId(1);
-        List<TbIndicator> indicators= new ArrayList<>();
-        indicators.add(ind);
-        tb.setTbIndicators(indicators);
-        userPatentService.updatePatentById(tb);
-        return false;
-    }
-
-    /**
-     *@Author:Yuyue
-     *@Description:添加文件到数据库
-     *@Date:15:16  2019/11/22
-     *@Param: Integer patentId,Integer typeId,String docName,String docAddress
-     *@Return:
-     */
-    @RequestMapping("/test")
-    public void addFile(Integer patentId,Integer typeId,String docName,String docAddress){
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
-        TbDocument tbDocument=new TbDocument();
-        TbDocumentType tbDocumentType=new TbDocumentType();
-        tbDocumentType.setDocTypeId(typeId);
-        tbDocument.setTbDocumentType(tbDocumentType);
-        tbDocument.setDocName(docName);
-        tbDocument.setDocAddress(docAddress);
-        tbDocument.setUploadDate(new Date());
-        tbDocument.setPatentId(patentId);
-        userPatentService.addFile(tbDocument);
-
-    }
-
-    /**
-     *@Author:Yuyue
-     *@Description:文件上传
-     *@Date:11:43  2019/11/22
-     *@Param: 文件
-     *@Return:  返回是否成功
-     */
-    @RequestMapping("/upload")
-    public String upload(@RequestParam("file") MultipartFile file,Integer patentId,Integer typeId) {
-        if (!file.isEmpty()) {
-            String fileName = file.getOriginalFilename();
-            String suffixName = fileName.substring(fileName.lastIndexOf("."));
-            fileName = fileName.substring(0, fileName.lastIndexOf("."));
-            Calendar calendar = Calendar.getInstance();
-            fileName = fileName +"-"+ calendar.get(Calendar.YEAR) + "" + (calendar.get(Calendar.MONTH) + 1) + "" + calendar
-                    .get(Calendar.DATE) + calendar.get(Calendar.HOUR) + calendar.get(Calendar.MINUTE) + calendar
-                    .get(Calendar.SECOND) + suffixName;
-            System.out.println("上传的文件名为：" + fileName);
-            //保存文件的绝对路径
-            File curFile = new File("");
-            String filePath = "";
+    @RequestMapping("updatePatent")
+    @Action(name = "change")
+    public Result updatePatentById(@RequestBody TbPatent tbPatent) {
+        System.out.println(tbPatent.toString());
+        //获取session
+        HttpSession httpSession = httpServletRequest.getSession();
+        //获取当前专利的id
+        httpSession.setAttribute("patentId", tbPatent.getPatentId().toString());
+        System.out.println(tbPatent.getPatentId());
+        Result result = new Result(false, null);
+        if (tbPatent.getPatentId() != null) {
             try {
-                filePath = curFile.getCanonicalPath() +"\\"+ fileName;
-                System.out.println("文件路径：" + filePath);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            File saveFile = new File(filePath);
-            if (!saveFile.getParentFile().exists()) {
-                saveFile.getParentFile().mkdirs();
-            }
-            try {
-                BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(saveFile));
-                out.write(file.getBytes());
-                out.flush();
-                out.close();
-                addFile(patentId,typeId,fileName,filePath);
-                return saveFile.getName() + " 上传成功";
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                return"上传失败," ;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return"上传失败,";
+                userPatentService.updatePatentById(tbPatent);
+                result.setSuccess(true);
+                result.setMessage("修改成功！");
+            } catch (Exception e) {
+                result.setSuccess(false);
+                result.setMessage("修改失败!");
             }
         } else {
-            return "上传失败，因为文件为空.";
+            result.setSuccess(false);
+            result.setMessage("修改失败,专利id为空!");
+        }
+        return result;
+    }
+
+    @RequestMapping("uploadFile")
+    @Action(name = "upfile")
+    Result uploadFile(@RequestBody MultipartFile file, Integer patentId, Integer typeId,
+                      HttpServletRequest request) {
+        //上传文件
+        Result result1 = uploadFileService.uploadFile(file, patentId, typeId, request);
+
+        /*
+         * @Author 姜爽
+         * @Date 8:11 2019/11/28
+         * @Description  将专利id存入session
+         **/
+        //获取session
+        HttpSession httpSession = httpServletRequest.getSession();
+        //获取当前专利的id
+        httpSession.setAttribute("patentId", patentId.toString());
+        //如果上传成功
+        if (result1.isSuccess()) {
+            //根据patentID查询当前进度
+            int planId = userPatentService.findPatentById(patentId).getPlanId();
+            //如果当前进度为交底书撰写中
+            Result result2 = null;
+            if (tbPlanService.findPlanByContent("交底书撰写中") == planId) {
+                //修改进度为第一次审核;
+                result2 = updatePatentPlan(tbPlanService.findPlanByContent("第一次审核"), patentId);
+            } else {
+                result2 = new Result(true, "上传该文件,不需要修改进度!");
+            }
+            return result2;
+        } else {
+            return result1;
         }
     }
+
     /**
-     *@Author:Yuyue
-     *@Description:用户查询文件信息，只显示所有类别最新的文件
-     *@Date:17:42  2019/11/22
-     *@Param: 专利id
-     *@Return: 返回文件list
+     * @Author:Yuyue
+     * @Description:用户查询文件信息，只显示所有类别最新的文件
+     * @Date:17:42 2019/11/22
+     * @Param: 专利id
+     * @Return: 返回文件list
      */
-    @RequestMapping("SelectLatestDocument")
-    List<TbDocument> selectLatestDocumentById(Integer patentId){
+    @RequestMapping("SelectLatestDocument") List<TbDocument> selectLatestDocumentById(Integer patentId) {
         return userPatentService.selectLatestDocumentById(patentId);
     }
 
     /**
-     *@Author:Yuyue
-     *@Description:管理员查询出所有当前专利的文件
-     *@Date:17:42  2019/11/22
-     *@Param: 专利id
-     *@Return: 返回文件list
+     * @Author:Yuyue
+     * @Description:管理员查询出所有当前专利的文件
+     * @Date:17:42 2019/11/22
+     * @Param: 专利id
+     * @Return: 返回文件list
      */
-    @RequestMapping("SelectAllDocument")
-    List<TbDocument> selectAllDocumentById(Integer patentId) {
+    @RequestMapping("SelectAllDocument") List<TbDocument> selectAllDocumentById(Integer patentId) {
         return userPatentService.selectAllDocumentById(patentId);
 
     }
+
+    //修改
+
+    /**
+     * @Author:Yuyue
+     * @Description:修改专利的进度
+     * @Date:14:53 2019/11/24
+     * @Param: 应该修改为的专利进度id，专利id
+     * @Return:
+     */
+    public Result updatePatentPlan(Integer planId, Integer patentId) {
+        Result result = new Result(false, null);
+        TbPatent tbPatent = new TbPatent();
+        tbPatent.setPatentId(patentId);
+        tbPatent.setPlanId(planId);
+        try {
+            userPatentService.updatePatentPlan(tbPatent);
+            result.setSuccess(true);
+            result.setMessage("修改进度成功！");
+        } catch (Exception e) {
+            result.setSuccess(false);
+            result.setMessage("修改进度失败！" + e.getMessage());
+        }
+        return result;
+    }
+
+    /**
+     * @Author:Yuyue
+     * @Description:修改专利的进度
+     * @Date:14:53 2019/11/24
+     * @Param: 应该修改为的专利进度id，专利id
+     * @Return:
+     */
+    @RequestMapping("toBeJDBook") public Result updateBookPlan(Integer patentId) {
+        Result result = new Result(false, null);
+        TbPatent tbPatent = new TbPatent();
+        tbPatent.setPatentId(patentId);
+        tbPatent.setPlanId(tbPlanService.findPlanByContent("交底书撰写中"));
+        try {
+            userPatentService.updatePatentPlan(tbPatent);
+            result.setSuccess(true);
+            result.setMessage("修改进度成功为交底书撰写！");
+        } catch (Exception e) {
+            result.setSuccess(false);
+            result.setMessage("修改进度失败！" + e.getMessage());
+        }
+        return result;
+    }
+
     @Autowired
     private SearchService searchService;
 
     //所有专利 段炼
     @RequestMapping("/findAll")
-    public List<TbPatent> index(){
+    public PageInfo<TbPatent> findAll(
+            @RequestParam(defaultValue = "1", value = "currentPage")int page,
+            @RequestParam(defaultValue = "10", value = "pageSize")int rows) {
+        Page<TbPatent> list = userPatentService.findAll(page, rows);
+        PageInfo<TbPatent> pageInfo = new PageInfo<>(list);
+        return  pageInfo;
 
-        List<TbPatent> list = userPatentService.findAll();
-        return list;
     }
 
     //某专利的详细信息 段炼
     @RequestMapping("/findDetail")
-    public List<TbPatent> findDetail(Integer id){
+    public List<TbPatent> findDetail(Integer id) {
         List<TbPatent> list = userPatentService.findDetail(id);
         return list;
     }
 
     //条件查询 段炼
     @RequestMapping("/findCondition")
-    public List<TbPatent> findCondition(TbPatent patent){
+    public List<TbPatent> findCondition(TbPatent patent) {
         List<TbPatent> list = searchService.findCondition(patent);
         return list;
     }
 
     //认领状态  段炼
     @RequestMapping("/updateCondition")
-    public String update(Integer id) {
-        int result = userPatentService.update(id);
+    @Action(name = "change")
+    public Result update(@RequestBody TbPatent tbPatent) {
+        int result = userPatentService.update(tbPatent);
+        //获取session
+        HttpSession httpSession = httpServletRequest.getSession();
+        //获取当前专利的id
+        httpSession.setAttribute("patentId", tbPatent.getPatentId().toString());
         if (result >= 1) {
-            return "修改成功";
+            return new Result(true, "修改成功");
         } else {
-            return "修改失败";
+            return new Result(false, "修改失败");
         }
     }
+
+
 }

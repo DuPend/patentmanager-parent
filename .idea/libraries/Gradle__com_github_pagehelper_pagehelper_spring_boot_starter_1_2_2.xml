@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.pagehelper:pagehelper-spring-boot-starter:1.2.2">
+    <CLASSES>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/com.github.pagehelper/pagehelper-spring-boot-starter/1.2.2/2983fe4b602eb1bad416d9a07fc6598c82109992/pagehelper-spring-boot-starter-1.2.2.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/com.github.pagehelper/pagehelper-spring-boot-starter/1.2.2/2983fe4b602eb1bad416d9a07fc6598c82109992/pagehelper-spring-boot-starter-1.2.2.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.pagehelper/pagehelper-spring-boot-starter/1.2.2/2983fe4b602eb1bad416d9a07fc6598c82109992/pagehelper-spring-boot-starter-1.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/com.github.pagehelper/pagehelper-spring-boot-starter/1.2.2/c264329501cd104506ff9d3c859ab364e30597f5/pagehelper-spring-boot-starter-1.2.2-sources.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/com.github.pagehelper/pagehelper-spring-boot-starter/1.2.2/c264329501cd104506ff9d3c859ab364e30597f5/pagehelper-spring-boot-starter-1.2.2-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.pagehelper/pagehelper-spring-boot-starter/1.2.2/c264329501cd104506ff9d3c859ab364e30597f5/pagehelper-spring-boot-starter-1.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

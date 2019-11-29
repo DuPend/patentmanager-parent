@@ -20,4 +20,5 @@ public class TbDocumentType {
     public void setDocTypeName(String docTypeName) {
         this.docTypeName = docTypeName == null ? null : docTypeName.trim();
     }
+
 }

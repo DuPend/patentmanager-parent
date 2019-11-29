@@ -59,4 +59,7 @@ pagehelper:
   helper-dialect: mysql
   reasonable: true
   support-methods-arguments: true
-  params: count=countSql
+  params: count=countSq
+visualPath : http://60.205.230.70/
+#visualPath : http://localhost:8080/
+savepath : /usr/local/nginx/html/public/

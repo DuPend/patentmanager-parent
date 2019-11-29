@@ -1,8 +1,7 @@
 package com.xinghuo.service;
 
+import com.github.pagehelper.Page;
 import com.xinghuo.pojo.TbLog;
-
-import java.util.List;
 
 public interface TbLogService {
     /*
@@ -12,9 +11,11 @@ public interface TbLogService {
     /*
     根据名称查询
      */
+
     TbLog selectLogByNameService(String name);
     /*
      查询所有的日志文件
      */
-    List<TbLog> selectAllLogService();
+
+    Page<TbLog> selectAllLogService(int page, int rows);
 }

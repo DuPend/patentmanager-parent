@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Gradle: org.eclipse.jetty.websocket:websocket-api:9.4.7.v20170914">
+    <CLASSES>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-api/9.4.7.v20170914/aa7717f73a613c338bda18bfa5b7bd8b6917330/websocket-api-9.4.7.v20170914.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-api/9.4.7.v20170914/aa7717f73a613c338bda18bfa5b7bd8b6917330/websocket-api-9.4.7.v20170914.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-api/9.4.7.v20170914/aa7717f73a613c338bda18bfa5b7bd8b6917330/websocket-api-9.4.7.v20170914.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-api/9.4.7.v20170914/17a58f5b29b5b73954d21dc143edc3c47c9e4ffa/websocket-api-9.4.7.v20170914-javadoc.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-api/9.4.7.v20170914/17a58f5b29b5b73954d21dc143edc3c47c9e4ffa/websocket-api-9.4.7.v20170914-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-api/9.4.7.v20170914/17a58f5b29b5b73954d21dc143edc3c47c9e4ffa/websocket-api-9.4.7.v20170914-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-api/9.4.7.v20170914/fc29a49aac7195f10322bb4d21c747849b761a0e/websocket-api-9.4.7.v20170914-sources.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-api/9.4.7.v20170914/fc29a49aac7195f10322bb4d21c747849b761a0e/websocket-api-9.4.7.v20170914-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-api/9.4.7.v20170914/fc29a49aac7195f10322bb4d21c747849b761a0e/websocket-api-9.4.7.v20170914-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

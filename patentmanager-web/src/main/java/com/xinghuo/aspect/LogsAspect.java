@@ -2,50 +2,50 @@ package com.xinghuo.aspect;
 
 import com.xinghuo.common.utils.FileUtil;
 import com.xinghuo.pojo.TbLog;
+import com.xinghuo.pojo.TbUser;
 import com.xinghuo.service.TbLogService;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Aspect
 @Component
 public class LogsAspect {
-
-    private final String  filePath = "E:/file";
     @Autowired
     private TbLogService tbLogService;
-    /*
-    定义切点，切入点为com.xinghuo.controller下的所有函数
-     */
-    @Pointcut("execution(public * com.xinghuo.controller..*.*(..))")
-    public void webLog() {
-
-    }
+    @Value("${visualPath}")
+    private String downfile; //下載文件時的ip路徑
+    @Value("${savepath}")
+    private String savepath; //服務器上的文件實際存儲位置
     /**
      * 前置通知：在连接点之前执行的通知
      */
-
-    @After("webLog()")
+    @Before("execution(* com.xinghuo.controller..*.*(..))")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
+        String filePath = request.getSession().getServletContext().getRealPath("/") + "/log";
+        System.out.println(filePath);
         //获取当前登陆的用户名和时间
-        HttpSession session = request.getSession();
-        String userName = (String) session.getAttribute("username");
+        Object object=request.getSession().getAttribute("username");
+        String userName= object==null?"未知用户操作":object.toString();
         // 记录下请求内容,首先获取当前日期的log日志文件名称并查询数据库是否存在文件
-//        userName != null
+        //        userName != null
+        System.out.println(userName+"*************************************");
         if (true) { //用户登陆成功，执行日志记录
             //不存在
             String fileName = FileUtil.getFileName();
@@ -54,11 +54,11 @@ public class LogsAspect {
             if (tbLog == null) {
                 tbLog = new TbLog();
                 tbLog.setLogName(fileName);
-                tbLog.setLogAddress(filePath);
+                tbLog.setLogAddress(downfile + "log");
                 tbLogService.addLogService(tbLog);
             }
 
-            File file = FileUtil.createFile(fileName);
+            File file = FileUtil.createFile(filePath, fileName);
             String url = request.getRequestURL().toString();
             String httpMethod = request.getMethod();
             String classMethod = joinPoint.getSignature().
@@ -66,7 +66,7 @@ public class LogsAspect {
             String args = Arrays.toString(joinPoint.getArgs());
             String message = "url:" + url + ";method:" + httpMethod + ";getmethod:"
                     + classMethod + ";args:" + args + ":username(" + userName + ")" + new Date();
-            FileUtil.appendMethod(filePath + "/" + fileName, message);
+            FileUtil.appendMethod(savepath + "/log/" + fileName, message);
         }
 
     }

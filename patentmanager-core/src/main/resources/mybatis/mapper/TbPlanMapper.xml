@@ -9,4 +9,32 @@
         where `plan_content` = #{planContent}
     </select>
 
+    <insert id="insertStatus">
+        insert into tb_status
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+
+            <if test="statusContent != null" >
+                `status_content`,
+            </if>
+            <if test="patentId != null or patentId == 0" >
+                `patent_id`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+
+            <if test="statusContent != null" >
+                #{statusContent,jdbcType=VARCHAR},
+            </if>
+            <if test="patentId != null or patentId == 0" >
+                #{patentId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateStatus">
+        update tb_status
+        set status_content=#{statusContent}
+        where  patent_id=#{patentId}
+    </update>
+
 </mapper>

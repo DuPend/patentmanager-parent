@@ -9,7 +9,7 @@
     <resultMap id="TbIndicatorResultMap" type="com.xinghuo.pojo.TbIndicatorExcend" extends="BaseResultMap3">
         <result column="patent_name" property="patentName" jdbcType="VARCHAR" />
         <result column="plan_content" property="planContent" jdbcType="VARCHAR" />
-        <result column="propose_date" property="proposeDate" jdbcType="DATE" />
+        <result column="propose_date" property="proposeDate" jdbcType="TIMESTAMP" />
         <result column="proposer_name" property="proposerName" jdbcType="VARCHAR" />
         <result column="user_name" property="userName" jdbcType="VARCHAR" />
     </resultMap>
@@ -19,7 +19,7 @@
     </sql>
 
     <sql id="TbIndicator_List">
-           i.ind_id, i.ind_details, p.patent_name,l.plan_content,p.propose_date,p.proposer_name,u.user_name
+           i.ind_id, i.ind_details, p.patent_name,l.plan_content,p.propose_date,p.proposer_name,u.user_name,i.patent_id
     </sql>
 
 
@@ -28,26 +28,33 @@
   <select id="findAll" resultMap="TbIndicatorResultMap">
      select
      <include refid="TbIndicator_List"/>
-     from tb_indicator i,tb_patent p,tb_plan l,tb_user u
-     where i.patent_id = p.patent_id and p.writer_id=u.user_id and p.plan_id=l.plan_id
+     from tb_patent p
+      inner join tb_indicator i on i.patent_id = p.patent_id
+      left join tb_user u on p.writer_id=u.user_id
+      inner join tb_plan l on p.plan_id=l.plan_id
+
   </select>
 
   <!--用户专利指标查询-->
   <select id="findUserAll" resultMap="TbIndicatorResultMap">
     select
     <include refid="TbIndicator_List"/>
-    from tb_indicator i,tb_patent p,tb_plan l,tb_user u
-    where i.patent_id = p.patent_id and p.writer_id=u.user_id and p.plan_id=l.plan_id and l.plan_id  &lt;=  2
+    from tb_patent p
+      inner join tb_indicator i on i.patent_id = p.patent_id
+      inner join tb_user u on p.writer_id=u.user_id
+      inner join tb_plan l on p.plan_id=l.plan_id
+      WHERE l.plan_id  &lt;=  2
   </select>
 
   <!--管理员专利指标条件查询-->
   <select id="findTerm" parameterType="com.xinghuo.pojo.TbIndicatorExcend" resultMap="TbIndicatorResultMap">
     select
     <include refid="TbIndicator_List"/>
-    from tb_indicator i,tb_patent p,tb_plan l,tb_user u
-
+    from tb_patent p
+      inner join tb_indicator i on i.patent_id = p.patent_id
+      left join tb_user u on p.writer_id=u.user_id
+      inner join tb_plan l on p.plan_id=l.plan_id
      <where>
-       i.patent_id = p.patent_id and p.writer_id=u.user_id and p.plan_id=l.plan_id and l.plan_id
        <if test="indDetails != null">
          and i.ind_details like concat('%', #{indDetails}, '%')
        </if>
@@ -73,10 +80,13 @@
   <select id="findUserTerm" parameterType="com.xinghuo.pojo.TbIndicatorExcend" resultMap="TbIndicatorResultMap">
     select
     <include refid="TbIndicator_List"/>
-    from tb_indicator i,tb_patent p,tb_plan l,tb_user u
+    from tb_patent p
+      inner join tb_indicator i on i.patent_id = p.patent_id
+      inner join tb_user u on p.writer_id=u.user_id
+      inner join tb_plan l on p.plan_id=l.plan_id
 
     <where>
-      i.patent_id = p.patent_id and p.writer_id=u.user_id and p.plan_id=l.plan_id and l.plan_id  &lt;=  2
+        l.plan_id  &lt;=  2
       <if test="indDetails != null">
         and i.ind_details like concat('%', #{indDetails}, '%')
       </if>

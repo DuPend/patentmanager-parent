@@ -1,10 +1,5 @@
 package com.xinghuo.pojo;
 
-import lombok.Data;
-
-import java.util.List;
-
-@Data
 public class TbIndicator {
     private Integer indId;
 
@@ -38,4 +33,13 @@ public class TbIndicator {
     public void setPatentId(Integer patentId) {
         this.patentId = patentId;
     }
+
+    public TbPatent getTbPatent() {
+        return tbPatent;
+    }
+
+    public void setTbPatent(TbPatent tbPatent) {
+        this.tbPatent = tbPatent;
+    }
+
 }

@@ -12,7 +12,7 @@ public interface TbIndicatorService {
      * 管理员专利指标查询
      * @return
      */
-    Page<TbIndicatorExcend> findAll(int page,int rows);
+    Page<TbIndicatorExcend> findAll(int page, int rows);
 
     /**
      * 管理员专利指标条件查询
@@ -32,7 +32,8 @@ public interface TbIndicatorService {
      * @param tbIndicatorExcend 指标查询条件
      * @return
      */
-    Page<TbIndicatorExcend> findUserTerm(TbIndicatorExcend tbIndicatorExcend, Integer page, Integer rows);
+    Page<TbIndicatorExcend> findUserTerm(TbIndicatorExcend tbIndicatorExcend, Integer page,
+            Integer rows);
 
 
     /**

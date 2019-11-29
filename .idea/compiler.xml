@@ -5,20 +5,22 @@
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="com.xinghuo.patentmanager-common.main" target="1.8" />
-      <module name="com.xinghuo.patentmanager-common.test" target="1.8" />
-      <module name="com.xinghuo.patentmanager-core.main" target="1.8" />
-      <module name="com.xinghuo.patentmanager-core.test" target="1.8" />
-      <module name="com.xinghuo.patentmanager-dao.main" target="1.8" />
-      <module name="com.xinghuo.patentmanager-dao.test" target="1.8" />
-      <module name="com.xinghuo.patentmanager-entity.main" target="1.8" />
-      <module name="com.xinghuo.patentmanager-entity.test" target="1.8" />
-      <module name="com.xinghuo.patentmanager-parent.main" target="1.8" />
-      <module name="com.xinghuo.patentmanager-parent.test" target="1.8" />
-      <module name="com.xinghuo.patentmanager-service.main" target="1.8" />
-      <module name="com.xinghuo.patentmanager-service.test" target="1.8" />
-      <module name="com.xinghuo.patentmanager-web.main" target="1.8" />
-      <module name="com.xinghuo.patentmanager-web.test" target="1.8" />
+      <module name="com.suixingpay.cloud.patentmanager-common.main" target="1.8" />
+      <module name="com.suixingpay.cloud.patentmanager-common.test" target="1.8" />
+      <module name="com.suixingpay.cloud.patentmanager-core.main" target="1.8" />
+      <module name="com.suixingpay.cloud.patentmanager-core.test" target="1.8" />
+      <module name="com.suixingpay.cloud.patentmanager-web.main" target="1.8" />
+      <module name="com.suixingpay.cloud.patentmanager-web.test" target="1.8" />
+      <module name="com.suixingpay.cloud.qw.main" target="1.8" />
+      <module name="com.suixingpay.cloud.qw.test" target="1.8" />
+      <module name="patentmanager-parent.patentmanager-common.main" target="1.8" />
+      <module name="patentmanager-parent.patentmanager-common.test" target="1.8" />
+      <module name="patentmanager-parent.patentmanager-core.main" target="1.8" />
+      <module name="patentmanager-parent.patentmanager-core.test" target="1.8" />
+      <module name="patentmanager-parent.patentmanager-web.main" target="1.8" />
+      <module name="patentmanager-parent.patentmanager-web.test" target="1.8" />
+      <module name="patentmanager-parent.qw.main" target="1.8" />
+      <module name="patentmanager-parent.qw.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/demoProject.iml" filepath="$PROJECT_DIR$/.idea/demoProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patentmanager-parent.iml" filepath="$PROJECT_DIR$/.idea/modules/patentmanager-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patentmanager-common/patentmanager-parent.patentmanager-common.iml" filepath="$PROJECT_DIR$/.idea/modules/patentmanager-common/patentmanager-parent.patentmanager-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patentmanager-common/patentmanager-parent.patentmanager-common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/patentmanager-common/patentmanager-parent.patentmanager-common.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patentmanager-common/patentmanager-parent.patentmanager-common.test.iml" filepath="$PROJECT_DIR$/.idea/modules/patentmanager-common/patentmanager-parent.patentmanager-common.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patentmanager-core/patentmanager-parent.patentmanager-core.iml" filepath="$PROJECT_DIR$/.idea/modules/patentmanager-core/patentmanager-parent.patentmanager-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patentmanager-core/patentmanager-parent.patentmanager-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/patentmanager-core/patentmanager-parent.patentmanager-core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patentmanager-core/patentmanager-parent.patentmanager-core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/patentmanager-core/patentmanager-parent.patentmanager-core.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patentmanager-web/patentmanager-parent.patentmanager-web.iml" filepath="$PROJECT_DIR$/.idea/modules/patentmanager-web/patentmanager-parent.patentmanager-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patentmanager-web/patentmanager-parent.patentmanager-web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/patentmanager-web/patentmanager-parent.patentmanager-web.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patentmanager-web/patentmanager-parent.patentmanager-web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/patentmanager-web/patentmanager-parent.patentmanager-web.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qw/patentmanager-parent.qw.iml" filepath="$PROJECT_DIR$/.idea/modules/qw/patentmanager-parent.qw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qw/patentmanager-parent.qw.main.iml" filepath="$PROJECT_DIR$/.idea/modules/qw/patentmanager-parent.qw.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qw/patentmanager-parent.qw.test.iml" filepath="$PROJECT_DIR$/.idea/modules/qw/patentmanager-parent.qw.test.iml" />
     </modules>
   </component>
 </project>

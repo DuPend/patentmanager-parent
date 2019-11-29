@@ -8,11 +8,9 @@ package com.xinghuo.pojo;
  **/
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
-
 import java.util.Date;
 import java.util.List;
-@Data
+
 public class TbPatent {
     private Integer patentId;
 
@@ -31,7 +29,7 @@ public class TbPatent {
     private String patentType;
 
     private String inventorName;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date proposeDate;
 
     private String technicalContact;
@@ -225,5 +223,7 @@ public class TbPatent {
     public void setRemark(String remark) {
         this.remark = remark;
     }
+
+
 
 }

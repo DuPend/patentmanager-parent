@@ -1,10 +1,7 @@
 package com.xinghuo.pojo;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
-
 import java.io.Serializable;
 
 /**
@@ -15,8 +12,7 @@ import java.io.Serializable;
  */
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Accessors(chain=true)
+
 public class TbDept implements Serializable {
 
     /**
@@ -34,6 +30,27 @@ public class TbDept implements Serializable {
      */
     private Long parentId;
 
+    public Long getDeptId() {
+        return deptId;
+    }
 
+    public void setDeptId(Long deptId) {
+        this.deptId = deptId;
+    }
 
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public Long getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
 }

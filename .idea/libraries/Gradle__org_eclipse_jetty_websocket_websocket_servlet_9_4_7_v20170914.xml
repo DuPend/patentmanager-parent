@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Gradle: org.eclipse.jetty.websocket:websocket-servlet:9.4.7.v20170914">
+    <CLASSES>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-servlet/9.4.7.v20170914/a75e6706b6af7a87bd3edebbddc45e6cb525f321/websocket-servlet-9.4.7.v20170914.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-servlet/9.4.7.v20170914/a75e6706b6af7a87bd3edebbddc45e6cb525f321/websocket-servlet-9.4.7.v20170914.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-servlet/9.4.7.v20170914/a75e6706b6af7a87bd3edebbddc45e6cb525f321/websocket-servlet-9.4.7.v20170914.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-servlet/9.4.7.v20170914/cfe7fbb613e3bb7a849527244059ef2eda7bba6e/websocket-servlet-9.4.7.v20170914-javadoc.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-servlet/9.4.7.v20170914/cfe7fbb613e3bb7a849527244059ef2eda7bba6e/websocket-servlet-9.4.7.v20170914-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-servlet/9.4.7.v20170914/cfe7fbb613e3bb7a849527244059ef2eda7bba6e/websocket-servlet-9.4.7.v20170914-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-servlet/9.4.7.v20170914/aaaef7ef16304132b840b3eacb257b8a27cc4b91/websocket-servlet-9.4.7.v20170914-sources.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-servlet/9.4.7.v20170914/aaaef7ef16304132b840b3eacb257b8a27cc4b91/websocket-servlet-9.4.7.v20170914-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-servlet/9.4.7.v20170914/aaaef7ef16304132b840b3eacb257b8a27cc4b91/websocket-servlet-9.4.7.v20170914-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

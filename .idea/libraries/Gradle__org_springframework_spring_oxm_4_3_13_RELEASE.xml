@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework:spring-oxm:4.3.13.RELEASE">
+    <CLASSES>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.13.RELEASE/d21d48871a335854db62b62300e3fcfabbd902d1/spring-oxm-4.3.13.RELEASE.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.13.RELEASE/d21d48871a335854db62b62300e3fcfabbd902d1/spring-oxm-4.3.13.RELEASE.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.13.RELEASE/d21d48871a335854db62b62300e3fcfabbd902d1/spring-oxm-4.3.13.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.13.RELEASE/732426e4b436060449b561dc5342670d51f031d5/spring-oxm-4.3.13.RELEASE-javadoc.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.13.RELEASE/732426e4b436060449b561dc5342670d51f031d5/spring-oxm-4.3.13.RELEASE-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.13.RELEASE/732426e4b436060449b561dc5342670d51f031d5/spring-oxm-4.3.13.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.13.RELEASE/71bfeb957436da1d412d9bdb4ac24ed83ba1a209/spring-oxm-4.3.13.RELEASE-sources.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.13.RELEASE/71bfeb957436da1d412d9bdb4ac24ed83ba1a209/spring-oxm-4.3.13.RELEASE-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.13.RELEASE/71bfeb957436da1d412d9bdb4ac24ed83ba1a209/spring-oxm-4.3.13.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

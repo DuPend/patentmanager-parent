@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Gradle: org.mybatis:mybatis:3.4.2">
+    <CLASSES>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.mybatis/mybatis/3.4.2/2b9a5082fe0bdb3128bab8b4b19b23ca0f3d9b38/mybatis-3.4.2.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.mybatis/mybatis/3.4.2/2b9a5082fe0bdb3128bab8b4b19b23ca0f3d9b38/mybatis-3.4.2.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis/3.4.2/2b9a5082fe0bdb3128bab8b4b19b23ca0f3d9b38/mybatis-3.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.mybatis/mybatis/3.4.2/b84dc649a549bdc09e12c0533eed568e6f0a129/mybatis-3.4.2-javadoc.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.mybatis/mybatis/3.4.2/b84dc649a549bdc09e12c0533eed568e6f0a129/mybatis-3.4.2-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis/3.4.2/b84dc649a549bdc09e12c0533eed568e6f0a129/mybatis-3.4.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/gradle-5.6.3/caches/modules-2/files-2.1/org.mybatis/mybatis/3.4.2/28fa71b6d5671fd878fa769956e08cee7d89bb62/mybatis-3.4.2-sources.jar!/" />
+      <root url="jar://D:/Program Files (x86)/gradle-5.6.3/caches/modules-2/files-2.1/org.mybatis/mybatis/3.4.2/28fa71b6d5671fd878fa769956e08cee7d89bb62/mybatis-3.4.2-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis/3.4.2/28fa71b6d5671fd878fa769956e08cee7d89bb62/mybatis-3.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

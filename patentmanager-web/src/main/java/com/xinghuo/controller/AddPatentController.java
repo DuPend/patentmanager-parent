@@ -6,6 +6,7 @@ import com.xinghuo.pojo.TbPatent;
 import com.xinghuo.service.TbIndicatorService;
 import com.xinghuo.service.TbPlanService;
 import com.xinghuo.service.UserPatentService;
+import com.xinghuo.target.Action;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,13 +24,19 @@ import java.util.Date;
 @RequestMapping("/patent")
 public class AddPatentController {
 
-    @Autowired UserPatentService userPatentService;
-    @Autowired TbIndicatorService tbIndicatorService;
-    @Autowired TbPlanService tbPlanService;
+    @Autowired
+    private UserPatentService userPatentService;
+    @Autowired
+    private TbIndicatorService tbIndicatorService;
+    @Autowired
+    private TbPlanService tbPlanService;
+    @Autowired
+    private HttpServletRequest httpServletRequest;
 
     //添加专利
+    @Action(name = "add")
     @PostMapping("/addPatentIndicator")
-    public Result addPatentIndicator(@RequestBody TbPatent tbPatent, HttpServletRequest httpServletRequest){
+    public Result addPatentIndicator(@RequestBody TbPatent tbPatent) {
         /**
          * @Description: 新建专利
          * @Author: LiuJian
@@ -37,27 +44,37 @@ public class AddPatentController {
          * @Param: [patent]
          * @Return: com.xinghuo.entity.Result
          */
-        Result result = new Result(false,null);
-        //获取session
-        HttpSession httpSession = httpServletRequest.getSession();
-        //获取当前登录用户的id
-        String id =(String) httpSession.getAttribute("id");
-        try{
+
+        Result result = new Result(false, null);
+        try {
             //查询专利名是否已存在
             TbPatent existPatent = userPatentService.findPatentByName(tbPatent.getPatentName());
-            if(existPatent!=null){
+            if (existPatent != null) {
                 result.setMessage("专利名已存在");
-            }else{
-                //新增专利的进程默认为待审核
-                tbPatent.setPlanId(tbPlanService.findPlanByContent("待审核"));
+            } else {
+                //新增专利的进程默认为新建专利待审核
+                tbPatent.setPlanId(tbPlanService.findPlanByContent("新建专利待审核"));
                 //申请日期为当前日期
                 tbPatent.setProposeDate(new Date());
                 //添加创建人id
-                tbPatent.setCreatorId(Integer.valueOf(id));
+                tbPatent.setCreatorId(tbPatent.getCreatorId());
                 //添加专利
                 userPatentService.addPatent(tbPatent);
                 //根据已添加的专利id查询专利信息id
                 TbPatent existPatent1 = userPatentService.findPatentByName(tbPatent.getPatentName());
+
+                //将专利id和状态添加到状态表
+                tbPlanService.insertStatus(existPatent1.getPatentId(), "正常");
+                /*
+                 * @Author 姜爽
+                 * @Date 8:11 2019/11/28
+                 * @Description  将专利id存入session
+                 **/
+                //获取session
+                HttpSession httpSession = httpServletRequest.getSession();
+                //获取当前专利的id
+                httpSession.setAttribute("patentId", existPatent1.getPatentId().toString());
+                System.out.println(httpSession.getAttribute("patentId"));
 
                 //添加指标
                 for (String ind:tbPatent.getIndDetails()) {
@@ -71,7 +88,7 @@ public class AddPatentController {
                 result.setMessage("添加成功");
                 result.setSuccess(true);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             result.setMessage(e.getMessage());
             e.printStackTrace();
         }

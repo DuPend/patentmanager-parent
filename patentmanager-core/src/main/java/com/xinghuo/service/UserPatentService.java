@@ -1,15 +1,12 @@
 package com.xinghuo.service;
 
+import com.github.pagehelper.Page;
 import com.xinghuo.pojo.TbDocument;
 import com.xinghuo.pojo.TbPatent;
-import com.xinghuo.pojo.TbPlan;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.List;
-
 /**
- * @program: mypatent
+ * @program: demoProject
  * @description: 用户专利服务层
  * @author: Yuyue and  duanlian
  * @create: 2019-11-20 19:35
@@ -18,25 +15,31 @@ import java.util.List;
 @Service
 public interface UserPatentService {
     /*段炼*/
-    List<TbPatent> findAll();
+    Page<TbPatent> findAll(int page, int rows);
     /*段炼*/
     List<TbPatent> findDetail(Integer id);
     /*段炼*/
-    int update(Integer id);
+    int update(TbPatent tbPatent);
 
     //于悦
-    List<TbPatent> getPatentByUser(Integer userId);
+    Page<TbPatent> getPatentByUser(Integer userId, int page, int rows);
     //于悦
     TbPatent getPatentById(Integer patentId);
     //于悦
     void  updatePatentById(TbPatent tbPatent);
     //于悦
-    void addFile(TbDocument tbDocument);
-    //于悦
     List<TbDocument> selectLatestDocumentById(Integer patentId);
     //于悦
     List<TbDocument> selectAllDocumentById(Integer patentId);
-
+    //修改
+    /**
+     *@Author:Yuyue
+     *@Description:修改专利的进度
+     *@Date:14:53  2019/11/24
+     *@Param: 专利进度id，专利id
+     *@Return:
+     */
+    void updatePatentPlan(TbPatent tbPatent);
     //添加专利   liujian
     void addPatent(TbPatent tbPatent);
 
@@ -48,6 +51,15 @@ public interface UserPatentService {
 
     //通过专利id修改专利进度   liujian
     void updPlan(TbPatent tbPatent);
+
+    /**
+    *@Author:Yuyue
+    *@Description:查询用户新建专利后，未通过的专利
+    *@Date:15:21  2019/11/24
+    *@Param:
+    *@Return:
+    */
+    Page<TbPatent> getFailPatentByUser(Integer userId, int page, int rows);
 }
 
 

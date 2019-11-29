@@ -13,7 +13,7 @@
         <result column="law_status" property="lawStatus" jdbcType="VARCHAR"/>
         <result column="patent_type" property="patentType" jdbcType="VARCHAR"/>
         <result column="inventor_name" property="inventorName" jdbcType="VARCHAR"/>
-        <result column="propose_date" property="proposeDate" jdbcType="DATE"/>
+        <result column="propose_date" property="proposeDate" jdbcType="TIMESTAMP"/>
         <result column="technical_contact" property="technicalContact" jdbcType="VARCHAR"/>
         <result column="remark" property="remark" jdbcType="VARCHAR"/>
 
@@ -42,35 +42,73 @@
     </sql>
 
 
-<select id="findCondition" resultMap="SearchResultMap">
-    select <include refid="Column_List" />
-    FROM  tb_patent as p,tb_plan as plan,tb_user as u
-    <where>
-        <if test ="patentName != null ">
-            and p.patent_name =#{patent_name}
-        </if>
+    <!--管理員多条件查询-->
+    <select id="selectByPatentInfo" resultMap="SearchResultMap">
+        select <include refid="Column_List" />
+        FROM  tb_patent as p,tb_plan as plan,tb_user as u
+        <where>
+            <if test ="patentName != null ">
+                and p.patent_name like concat('%', #{patentName}, '%')
+            </if>
 
-        <if test ="caseNumber != null ">
-        and p.case_number =#{case_number}
-        </if>
+            <if test ="caseNumber != null ">
+                and p.case_number like concat('%', #{caseNumber}, '%')
+            </if>
 
-        <if test ="proposeNumber != null ">
-        and p.propose_number =#{propose_number}
-        </if>
+            <if test ="proposeNumber != null ">
+                and p.propose_number like concat('%', #{proposeNumber}, '%')
+            </if>
 
-        <if test ="proposeDate != null ">
-        and p.propose_date =#{propose_date}
-        </if>
+            <if test ="proposeDate != null ">
+                and p.propose_date =#{proposeDate}
+            </if>
 
-        <if test ="inventorName != null ">
-        and p.inventor_name =#{inventor_name}
-        </if>
+            <if test ="inventorName != null ">
+                and p.inventor_name like concat('%', #{inventorName}, '%')
+            </if>
 
-        <if test ="planId != null ">
-            and p.plan_id =#{plan_id}
-        </if>
+            <if test ="planId != null ">
+                and p.plan_id =#{planId}
+            </if>
+            and p.plan_id = plan.plan_id
+            ORDER BY plan.plan_id ASC
+        </where>
+    </select>
 
-    </where>
-</select>
+
+    <!--用戶多条件查询-->
+    <select id="findCondition"  resultMap="SearchResultMap">
+        select <include refid="Column_List" />
+        FROM  tb_patent as p,tb_plan as plan,tb_user as u
+        <where>
+            <if test ="patentName != null ">
+                and p.patent_name like concat('%', #{patentName}, '%')
+            </if>
+
+            <if test ="caseNumber != null ">
+                and p.case_number like concat('%', #{caseNumber}, '%')
+            </if>
+
+            <if test ="proposeNumber != null ">
+                and p.propose_number like concat('%', #{proposeNumber}, '%')
+            </if>
+
+            <if test ="proposeDate != null ">
+                and p.propose_date =#{proposeDate}
+            </if>
+
+            <if test ="inventorName != null ">
+                and p.inventor_name like concat('%', #{inventorName}, '%')
+            </if>
+
+            <if test ="planId != null ">
+                and p.plan_id =#{planId}
+            </if>
+            and p.plan_id = plan.plan_id
+            and plan.plan_id = 2;
+
+        </where>
+    </select>
+
 
 </mapper>

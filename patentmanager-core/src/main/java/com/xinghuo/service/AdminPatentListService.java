@@ -1,5 +1,6 @@
 package com.xinghuo.service;
 
+import com.github.pagehelper.Page;
 import com.xinghuo.pojo.TbPatent;
 
 import java.util.List;
@@ -15,9 +16,12 @@ import java.util.List;
 public interface AdminPatentListService {
 
 
+        /*管理员多条件查询专利  未认领专利在前面显示*/
+    Page<TbPatent> selectByPatentInfo(TbPatent patent, int page, int rows);
 
-      List<TbPatent>  selectByPatentInfo(TbPatent patent);
+    /*根据专利id 查询专利详情*/
+    List<TbPatent> selectByPatentId(Integer id);
 
-       TbPatent  selectByPatentId(Integer  patent_id);
-
+     /*查询所有专利信息*/
+    Page<TbPatent> selectAll(int page, int rows);
 }

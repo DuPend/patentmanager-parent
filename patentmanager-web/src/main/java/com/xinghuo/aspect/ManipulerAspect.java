@@ -1,6 +1,7 @@
 package com.xinghuo.aspect;
 
 import com.xinghuo.pojo.TbFlow;
+import com.xinghuo.pojo.TbUser;
 import com.xinghuo.service.TbFlowService;
 import com.xinghuo.target.Action;
 import org.aspectj.lang.JoinPoint;
@@ -34,34 +35,38 @@ public class ManipulerAspect {
      */
 
     @After("manipuler()")
-    public void doBefore(JoinPoint joinPoint) throws Throwable {
+    public void doAfter(JoinPoint joinPoint) throws Throwable {
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         //获取当前登陆的用户名和时间
         HttpSession session = request.getSession();
-        String userName = (String) session.getAttribute("username");
-        userName="zhangsan";
-        String  tempPatentId = (String) session.getAttribute("patentId");
-//        int patentId = Integer.valueOf(tempPatentId);
+        Object sessionis = session.getAttribute("uuid");
+        String sessioninfo = sessionis == null ? "" : sessionis.toString();
+        TbUser tbUser = (TbUser) session.getAttribute(sessioninfo);
+        String userName = tbUser == null ? "未知用户操作" : tbUser.getUserName();
+
+        String tempPatentId = (String) session.getAttribute("patentId");
+        int patentId = Integer.valueOf(tempPatentId);
+
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
         Action action = method.getAnnotation(Action.class);
         TbFlow tbFlow = new TbFlow();
         if (action.name().equals("add")) {
-            tbFlow.setPatentId(1);
+            tbFlow.setPatentId(patentId);
             tbFlow.setEditUser(userName);
             tbFlow.setEditSelectioin("增加");
             tbFlow.setFlowDate(new Date());
             tbFlowService.addTbFlowService(tbFlow);
         } else if (action.name().equals("change")) {
-            tbFlow.setPatentId(1);
+            tbFlow.setPatentId(patentId);
             tbFlow.setEditUser(userName);
             tbFlow.setEditSelectioin("修改");
             tbFlow.setFlowDate(new Date());
             tbFlowService.addTbFlowService(tbFlow);
         } else if (action.name().equals("upfile")) {
-            tbFlow.setPatentId(1);
+            tbFlow.setPatentId(patentId);
             tbFlow.setEditUser(userName);
             tbFlow.setEditSelectioin("上传文件");
             tbFlow.setFlowDate(new Date());

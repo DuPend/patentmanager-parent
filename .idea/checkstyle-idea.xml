@@ -3,13 +3,16 @@
   <component name="CheckStyle-IDEA">
     <option name="configuration">
       <map>
-        <entry key="checkstyle-version" value="8.26" />
+        <entry key="active-configuration" value="LOCAL_FILE:C:/Users/yuyue/Desktop/Suixingpay_checkstyle.xml:yuyuecheck" />
+        <entry key="checkstyle-version" value="8.22" />
         <entry key="copy-libs" value="true" />
         <entry key="location-0" value="BUNDLED:(bundled):Sun Checks" />
         <entry key="location-1" value="BUNDLED:(bundled):Google Checks" />
+        <entry key="location-2" value="LOCAL_FILE:E:/SuiXingPay/代码规范 checkstyle/Suixingpay_checkstyle.xml:my" />
+        <entry key="location-3" value="LOCAL_FILE:C:/Users/yuyue/Desktop/Suixingpay_checkstyle.xml:yuyuecheck" />
         <entry key="scan-before-checkin" value="false" />
         <entry key="scanscope" value="JavaOnly" />
-        <entry key="suppress-errors" value="false" />
+        <entry key="suppress-errors" value="true" />
       </map>
     </option>
   </component>

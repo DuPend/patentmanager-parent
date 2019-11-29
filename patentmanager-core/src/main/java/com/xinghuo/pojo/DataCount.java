@@ -1,10 +1,7 @@
 package com.xinghuo.pojo;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
-
 import java.io.Serializable;
 
 /**
@@ -15,8 +12,7 @@ import java.io.Serializable;
  */
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Accessors(chain=true)
+
 public class DataCount implements Serializable {
     /**
      * 专利总数
@@ -37,4 +33,36 @@ public class DataCount implements Serializable {
      * 申请中专利数
      */
     private Long applyNumber;
+
+    public Long getPatentTotal() {
+        return patentTotal;
+    }
+
+    public void setPatentTotal(Long patentTotal) {
+        this.patentTotal = patentTotal;
+    }
+
+    public Long getSuccessNumber() {
+        return successNumber;
+    }
+
+    public void setSuccessNumber(Long successNumber) {
+        this.successNumber = successNumber;
+    }
+
+    public Long getFalseNumber() {
+        return falseNumber;
+    }
+
+    public void setFalseNumber(Long falseNumber) {
+        this.falseNumber = falseNumber;
+    }
+
+    public Long getApplyNumber() {
+        return applyNumber;
+    }
+
+    public void setApplyNumber(Long applyNumber) {
+        this.applyNumber = applyNumber;
+    }
 }

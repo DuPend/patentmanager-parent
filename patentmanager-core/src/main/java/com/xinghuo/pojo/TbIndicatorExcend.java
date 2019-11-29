@@ -1,13 +1,7 @@
 package com.xinghuo.pojo;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
-
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @description: 指标扩展类
@@ -15,10 +9,8 @@ import java.util.List;
  * @date: 2019-11-21 18:47
  * @version: V1.0
  */
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@Accessors(chain=true)
+
+
 public class TbIndicatorExcend extends TbIndicator {
     /**
      * 专利类
@@ -37,6 +29,7 @@ public class TbIndicatorExcend extends TbIndicator {
     /**
      * 申请日
      */
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date proposeDate;
 
     /**
@@ -58,4 +51,60 @@ public class TbIndicatorExcend extends TbIndicator {
      * 进度id
      */
     private Integer planId;
+
+    public String getPatentName() {
+        return patentName;
+    }
+
+    public void setPatentName(String patentName) {
+        this.patentName = patentName;
+    }
+
+    public String getPlanContent() {
+        return planContent;
+    }
+
+    public void setPlanContent(String planContent) {
+        this.planContent = planContent;
+    }
+
+    public Date getProposeDate() {
+        return proposeDate;
+    }
+
+    public void setProposeDate(Date proposeDate) {
+        this.proposeDate = proposeDate;
+    }
+
+    public String getProposerName() {
+        return proposerName;
+    }
+
+    public void setProposerName(String proposerName) {
+        this.proposerName = proposerName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getProposeNumber() {
+        return proposeNumber;
+    }
+
+    public void setProposeNumber(String proposeNumber) {
+        this.proposeNumber = proposeNumber;
+    }
+
+    public Integer getPlanId() {
+        return planId;
+    }
+
+    public void setPlanId(Integer planId) {
+        this.planId = planId;
+    }
 }

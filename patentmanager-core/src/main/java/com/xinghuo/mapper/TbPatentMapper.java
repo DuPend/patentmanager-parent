@@ -1,11 +1,11 @@
 package com.xinghuo.mapper;
 
+import com.github.pagehelper.Page;
 import com.xinghuo.pojo.TbDocument;
 import com.xinghuo.pojo.TbIndicator;
 import com.xinghuo.pojo.TbPatent;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
-import org.springframework.jdbc.datasource.AbstractDriverBasedDataSource;
 import java.util.List;
 
 @Mapper
@@ -18,7 +18,16 @@ public interface TbPatentMapper {
      *@Param:
      *@Return:
      */
-    List<TbPatent> getPatentByUser(Integer userId);
+    Page<TbPatent> getPatentByUser(Integer userId);
+
+    /**
+    *@Author:Yuyue
+     *@Description:查询用户撰写后，未通过的专利
+    *@Date:15:19  2019/11/24
+    *@Param:
+    *@Return:
+    */
+    Page<TbPatent> getFailPatentByUser(Integer userId);
     /**
      *@Author:Yuyue
      *@Description:获取专利信息通过专利id
@@ -78,10 +87,19 @@ public interface TbPatentMapper {
      *@Return:
      */
     List<TbDocument> selectAllDocumentById(Integer patentId);
-    //根据相关专利信息查询所有专利包含认领和未被认领（管理员） zhou_gc
-    List<TbPatent>  getPatentList(TbPatent tbPatent);
-    //根据专利id查询相关专利信息  zhou_gc
-    TbPatent  getPatentByPatentId(Integer patent_id);
+
+    //修改
+    /**
+    *@Author:Yuyue
+    *@Description:修改专利的进度
+    *@Date:14:53  2019/11/24
+    *@Param: 专利进度id，专利id
+    *@Return:
+    */
+    void updatePatentPlan(TbPatent tbPatent);
+
+
+
 
     //添加专利  刘建
     void addPatent(TbPatent tbPatent);

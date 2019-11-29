@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module version="4">
-  <component name="sonarModuleSettings">
-    <option name="localAnalysisScripName" value="&lt;PROJECT&gt;" />
-    <option name="serverName" value="&lt;PROJECT&gt;" />
+<module external.linked.project.id=":patentmanager-common" external.linked.project.path="$MODULE_DIR$/../../../patentmanager-common" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.suixingpay.cloud" external.system.module.version="1.0.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../patentmanager-common">
+      <excludeFolder url="file://$MODULE_DIR$/../../../patentmanager-common/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../patentmanager-common/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
